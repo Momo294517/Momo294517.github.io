@@ -11,97 +11,57 @@
 
 <header class="site-header">
   <nav>
-    <a class="logo" href="#accueil">Mohamed</a>
+    <a class="logo" href="index.html">Mohamed</a>
     <ul>
-      <li><a href="#apropos">À propos</a></li>
-      <li><a href="#projets">Projets</a></li>
-      <li><a href="#stages">Stages</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <li class="dropdown active">
+        <button class="drop-btn" type="button" aria-expanded="false">Accueil</button>
+        <ul class="dropdown-menu">
+          <li><a class="active" href="index.html">Accueil</a></li>
+          <li><a href="apropos.html">À propos</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <button class="drop-btn" type="button" aria-expanded="false">Réalisations</button>
+        <ul class="dropdown-menu">
+          <li><a href="projets.html">Projets</a></li>
+          <li><a href="stages.html">Stages</a></li>
+        </ul>
+      </li>
+      <li><a href="veille.html">Veille technologique</a></li>
+      <li><a href="competences.html">Compétences</a></li>
     </ul>
   </nav>
 </header>
 
 <main>
-
-  <section id="accueil" class="hero">
+  <section class="hero">
     <p class="eyebrow">Étudiant BTS SIO – option SISR</p>
     <h1>Bonjour, je suis Mohamed</h1>
     <p class="lead">Je me forme à l'administration des systèmes et réseaux à ISITECH Lyon et je recherche une alternance de 12 mois.</p>
     <div class="buttons">
-      <a class="btn primary" href="#projets">Voir mes projets</a>
-      <a class="btn" href="#contact">Me contacter</a>
+      <a class="btn primary" href="projets.html">Voir mes projets</a>
+      <a class="btn" href="contact.html">Me contacter</a>
     </div>
   </section>
 
-  <section id="apropos">
-    <h2>À propos</h2>
-    <div class="card">
-      <p>Je suis en BTS SIO option SISR (Solutions d'Infrastructure, Systèmes et Réseaux) à ISITECH Lyon. J'habite à Décines-Charpieu et je suis joignable facilement via le réseau TCL.</p>
-      <p>Mon parcours n'est pas linéaire : animation 3D (Ynov Campus), puis développement web full-stack (3W Academy), et une expérience en logistique chez UPS. Ces étapes m'ont donné de la rigueur, de l'adaptabilité et une vraie curiosité pour comprendre comment les choses fonctionnent, avant de me spécialiser dans les systèmes et réseaux.</p>
-    </div>
-
-    <h3>Compétences</h3>
-    <ul class="tags">
-      <li>Réseaux (adressage IP, VLAN, routage)</li>
-      <li>Virtualisation</li>
-      <li>Administration Windows Server</li>
-      <li>Administration Linux</li>
-      <li>Support utilisateur</li>
-      <li>Notions de développement web</li>
-    </ul>
-  </section>
-
-  <section id="projets">
-    <h2>Projets</h2>
+  <section>
+    <h2>Explorer le portfolio</h2>
     <div class="grid">
-      <article class="card">
-        <h3>[Nom du projet 1]</h3>
-        <p>[Contexte, objectif, outils utilisés, résultat. Ex. : mise en place d'un réseau avec VLAN et routage inter-VLAN.]</p>
-        <p class="meta">Réseaux · [Outils]</p>
-      </article>
-      <article class="card">
-        <h3>[Nom du projet 2]</h3>
-        <p>[Ex. : déploiement d'un serveur Active Directory / DHCP / DNS sur machines virtuelles.]</p>
-        <p class="meta">Systèmes · [Outils]</p>
-      </article>
-      <article class="card">
-        <h3>[Nom du projet 3]</h3>
-        <p>[Ex. : projet de virtualisation, supervision, sauvegarde…]</p>
-        <p class="meta">Virtualisation · [Outils]</p>
-      </article>
+      <a class="card link-card" href="apropos.html"><h3>À propos</h3><p>Mon parcours et qui je suis.</p></a>
+      <a class="card link-card" href="projets.html"><h3>Projets</h3><p>Les réalisations faites en BTS.</p></a>
+      <a class="card link-card" href="stages.html"><h3>Stages</h3><p>Mes expériences en entreprise.</p></a>
+      <a class="card link-card" href="veille.html"><h3>Veille technologique</h3><p>Les sujets que je suis et mes sources.</p></a>
+      <a class="card link-card" href="competences.html"><h3>Compétences</h3><p>Mes compétences par bloc du BTS.</p></a>
+      <a class="card link-card" href="contact.html"><h3>Contact</h3><p>Pour échanger ou me proposer une alternance.</p></a>
     </div>
   </section>
-
-  <section id="stages">
-    <h2>Stages</h2>
-    <article class="card">
-      <h3>[Entreprise] – [Intitulé du stage]</h3>
-      <p class="meta">[Dates] · [Lieu]</p>
-      <ul>
-        <li>[Mission 1]</li>
-        <li>[Mission 2]</li>
-        <li>[Mission 3]</li>
-      </ul>
-    </article>
-  </section>
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <div class="card">
-      <p>Je recherche une alternance de 12 mois en systèmes et réseaux. N'hésitez pas à me contacter.</p>
-      <ul class="contact-list">
-        <li>Email : <a href="mailto:ton.email@exemple.fr">ton.email@exemple.fr</a></li>
-        <li>LinkedIn : <a href="https://www.linkedin.com/in/ton-profil">linkedin.com/in/ton-profil</a></li>
-        <li>GitHub : <a href="https://github.com/ton-pseudo">github.com/ton-pseudo</a></li>
-      </ul>
-    </div>
-  </section>
-
 </main>
 
 <footer>
   <p>© 2026 Mohamed – Portfolio BTS SIO SISR</p>
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
