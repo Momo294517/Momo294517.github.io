@@ -3,63 +3,219 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Mohamed – Portfolio BTS SIO SISR</title>
-  <meta name="description" content="Portfolio de Mohamed, étudiant en BTS SIO option SISR à ISITECH Lyon, à la recherche d'une alternance.">
+  <title>Mohamed Bellouza – Portfolio BTS SIO SISR</title>
+  <meta name="description" content="Portfolio de Mohamed Bellouza, étudiant en BTS SIO option SISR à ISITECH Lyon, à la recherche d'une alternance de 12 mois.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header class="site-header">
   <nav>
-    <a class="logo" href="index.html">Mohamed</a>
-    <ul>
-      <li class="dropdown active">
-        <button class="drop-btn" type="button" aria-expanded="false">Accueil</button>
-        <ul class="dropdown-menu">
-          <li><a class="active" href="index.html">Accueil</a></li>
-          <li><a href="apropos.html">À propos</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </li>
-      <li class="dropdown">
-        <button class="drop-btn" type="button" aria-expanded="false">Réalisations</button>
-        <ul class="dropdown-menu">
-          <li><a href="projets.html">Projets</a></li>
-          <li><a href="stages.html">Stages</a></li>
-        </ul>
-      </li>
-      <li><a href="veille.html">Veille technologique</a></li>
-      <li><a href="competences.html">Compétences</a></li>
+    <a class="logo" href="#accueil">Mohamed<span>.</span></a>
+    <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+    <ul class="menu">
+      <li><a href="#accueil">Accueil</a></li>
+      <li><a href="#apropos">À propos</a></li>
+      <li><a href="#projets">Projets</a></li>
+      <li><a href="#stages">Stages</a></li>
+      <li><a href="#veille">Veille</a></li>
+      <li><a href="#competences">Compétences</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 </header>
 
 <main>
-  <section class="hero">
-    <p class="eyebrow">Étudiant BTS SIO – option SISR</p>
-    <h1>Bonjour, je suis Mohamed</h1>
-    <p class="lead">Je me forme à l'administration des systèmes et réseaux à ISITECH Lyon et je recherche une alternance de 12 mois.</p>
-    <div class="buttons">
-      <a class="btn primary" href="projets.html">Voir mes projets</a>
-      <a class="btn" href="contact.html">Me contacter</a>
+
+  <section id="accueil" class="hero">
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+    <div class="hero-inner">
+      <p class="eyebrow">Étudiant BTS SIO – option SISR</p>
+      <h1>Bonjour, je suis <span class="gradient">Mohamed</span></h1>
+      <p class="lead">Je me forme à l'administration des systèmes et réseaux à ISITECH Lyon et je recherche une alternance de 12 mois.</p>
+      <div class="buttons">
+        <a class="btn primary" href="#projets">Voir mes projets</a>
+        <a class="btn" href="#contact">Me contacter</a>
+      </div>
     </div>
   </section>
 
-  <section>
-    <h2>Explorer le portfolio</h2>
+  <section id="apropos">
+    <h2 class="reveal">À propos</h2>
+    <div class="card reveal">
+      <p>Je suis en BTS SIO option SISR (Solutions d'Infrastructure, Systèmes et Réseaux) à ISITECH Lyon. J'habite à Décines-Charpieu et je suis facilement joignable via le réseau TCL.</p>
+      <p>Mon parcours n'est pas linéaire : animation 3D (Ynov Campus), puis développement web full-stack (3W Academy), et une expérience en logistique chez UPS. Ces étapes m'ont donné de la rigueur, de l'adaptabilité et une vraie curiosité pour comprendre comment les choses fonctionnent, avant de me spécialiser dans les systèmes et réseaux.</p>
+    </div>
+
+    <h3 class="sub reveal">Parcours</h3>
+    <div class="timeline">
+      <div class="card reveal"><h3>BTS SIO option SISR – ISITECH Lyon</h3><p class="meta">Septembre 2025 – Septembre 2027</p></div>
+      <div class="card reveal"><h3>Agent polyvalent – UPS</h3><p class="meta">Février 2023 – Janvier 2025</p></div>
+      <div class="card reveal"><h3>Développement web full-stack – 3W Academy</h3><p class="meta">Juillet 2022 – Janvier 2023</p></div>
+      <div class="card reveal"><h3>Animation 3D – Ynov Campus</h3><p class="meta">Septembre 2021 – Juin 2022</p></div>
+    </div>
+
+    <h3 class="sub reveal">Centres d'intérêt</h3>
+    <ul class="tags reveal">
+      <li>Voyager</li>
+      <li>Montage vidéo</li>
+      <li>Sport</li>
+    </ul>
+  </section>
+
+  <section id="projets">
+    <h2 class="reveal">Projets</h2>
+    <p class="section-lead reveal">Les réalisations que j'ai menées pendant mon BTS SIO SISR.</p>
     <div class="grid">
-      <a class="card link-card" href="apropos.html"><h3>À propos</h3><p>Mon parcours et qui je suis.</p></a>
-      <a class="card link-card" href="projets.html"><h3>Projets</h3><p>Les réalisations faites en BTS.</p></a>
-      <a class="card link-card" href="stages.html"><h3>Stages</h3><p>Mes expériences en entreprise.</p></a>
-      <a class="card link-card" href="veille.html"><h3>Veille technologique</h3><p>Les sujets que je suis et mes sources.</p></a>
-      <a class="card link-card" href="competences.html"><h3>Compétences</h3><p>Mes compétences par bloc du BTS.</p></a>
-      <a class="card link-card" href="contact.html"><h3>Contact</h3><p>Pour échanger ou me proposer une alternance.</p></a>
+      <article class="card reveal">
+        <h3>Réseau d'entreprise sur infrastructure Cisco physique</h3>
+        <p class="meta">Réseaux · Cisco 2911, Cisco 2960, pfSense CE, Windows Server 2022</p>
+        <p><strong>Contexte :</strong> Projet réalisé pendant le BTS SIO SISR à ISITECH Lyon, sur du matériel Cisco physique.</p>
+        <p><strong>Réalisation :</strong> Configuration de routeurs (Cisco 2911) et d'un switch (Cisco 2960) : VLAN, HSRP, EtherChannel (LACP) et router-on-a-stick. Déploiement d'un pare-feu pfSense CE et d'un serveur Windows Server 2022.</p>
+      </article>
+      <article class="card reveal">
+        <h3>NAS TrueNAS intégré à Active Directory</h3>
+        <p class="meta">Systèmes · TrueNAS, Active Directory, SMB</p>
+        <p><strong>Contexte :</strong> Projet réalisé pendant le BTS SIO SISR à ISITECH Lyon.</p>
+        <p><strong>Réalisation :</strong> Configuration de partages SMB et intégration du NAS avec Active Directory.</p>
+        <p><strong>Difficultés résolues :</strong> Problèmes techniques liés à l'authentification et aux accès.</p>
+      </article>
+      <article class="card reveal">
+        <h3>Infrastructure NTP sous VMware vSphere <span class="badge">en cours</span></h3>
+        <p class="meta">Virtualisation · VMware vSphere, pfSense, Windows Server 2022, Windows 10</p>
+        <p><strong>Contexte :</strong> Projet en cours pendant le BTS SIO SISR à ISITECH Lyon.</p>
+        <p><strong>Réalisation :</strong> Configuration de pfSense en serveur NTP, puis synchronisation d'un contrôleur de domaine (Windows Server 2022) et d'un client Windows 10.</p>
+      </article>
     </div>
   </section>
+
+  <section id="stages">
+    <h2 class="reveal">Stages</h2>
+    <p class="section-lead reveal">Mes expériences en entreprise.</p>
+    <article class="card reveal">
+      <h3>APSSI Group – Stagiaire technicien systèmes et réseaux</h3>
+      <p class="meta">25 mai 2026 – 6 août 2026 · Bron (69500)</p>
+      <p><strong>Missions :</strong></p>
+      <ul>
+        <li>Configuration de switchs Cisco (CBS220) via l'interface web</li>
+        <li>Diagnostic et résolution d'incidents chez les clients</li>
+      </ul>
+    </article>
+  </section>
+
+  <section id="veille">
+    <h2 class="reveal">Veille technologique</h2>
+    <p class="section-lead reveal">Les sujets que je suis pour rester à jour dans les systèmes, réseaux et la cybersécurité.</p>
+
+    <div class="card reveal">
+      <h3>Sujet de ma veille</h3>
+      <p>[Sujet choisi, ex. : la cybersécurité, le cloud, la virtualisation… et pourquoi il t'intéresse.]</p>
+    </div>
+
+    <h3 class="sub reveal">Mes sources</h3>
+    <ul class="tags reveal">
+      <li>[Site / blog]</li>
+      <li>[Chaîne YouTube / podcast]</li>
+      <li>[Newsletter]</li>
+      <li>[Flux RSS]</li>
+    </ul>
+
+    <h3 class="sub reveal">Mes outils de veille</h3>
+    <div class="card reveal">
+      <ul>
+        <li>[Ex. : lecteur de flux RSS]</li>
+        <li>[Ex. : alertes Google]</li>
+        <li>[Ex. : outil de prise de notes]</li>
+      </ul>
+    </div>
+
+    <h3 class="sub reveal">Dernières actualités</h3>
+    <div class="grid">
+      <article class="card reveal">
+        <h3>[Titre de l'article]</h3>
+        <p class="meta">[Date] · [Source]</p>
+        <p>[Résumé en 2-3 phrases, avec tes mots.]</p>
+      </article>
+      <article class="card reveal">
+        <h3>[Titre de l'article]</h3>
+        <p class="meta">[Date] · [Source]</p>
+        <p>[Résumé en 2-3 phrases.]</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="competences">
+    <h2 class="reveal">Compétences</h2>
+    <p class="section-lead reveal">Organisées selon les blocs du BTS SIO option SISR.</p>
+
+    <div class="grid">
+      <div class="card reveal">
+        <h3>Bloc 1 – Support et mise à disposition de services informatiques</h3>
+        <ul>
+          <li>Gérer le patrimoine informatique</li>
+          <li>Répondre aux incidents et aux demandes d'assistance</li>
+          <li>Développer la présence en ligne de l'organisation</li>
+          <li>Travailler en mode projet</li>
+          <li>Mettre à disposition des utilisateurs un service informatique</li>
+          <li>Organiser son développement professionnel</li>
+        </ul>
+        <p class="meta">Preuves : <a href="#stages">Stage APSSI Group</a></p>
+      </div>
+
+      <div class="card reveal">
+        <h3>Bloc 2 – Administration des systèmes et des réseaux</h3>
+        <ul>
+          <li>Concevoir une solution d'infrastructure réseau</li>
+          <li>Installer, tester et déployer une solution d'infrastructure réseau</li>
+          <li>Exploiter, dépanner et superviser une solution d'infrastructure réseau</li>
+        </ul>
+        <p class="meta">Preuves : <a href="#projets">Projets Cisco, TrueNAS et NTP</a></p>
+      </div>
+
+      <div class="card reveal">
+        <h3>Bloc 3 – Cybersécurité des services informatiques</h3>
+        <ul>
+          <li>Protéger les données à caractère personnel</li>
+          <li>Préserver l'identité numérique de l'organisation</li>
+          <li>Sécuriser les équipements et les usages des utilisateurs</li>
+          <li>Garantir la disponibilité, l'intégrité et la confidentialité des services informatiques et des données</li>
+          <li>Assurer la cybersécurité d'une infrastructure réseau, d'un système, d'un service</li>
+        </ul>
+        <p class="meta">Preuves : <a href="#projets">Projet pfSense</a></p>
+      </div>
+    </div>
+
+    <h3 class="sub reveal">Outils et technologies</h3>
+    <ul class="tags reveal">
+      <li>Cisco</li>
+      <li>pfSense</li>
+      <li>VMware / Proxmox</li>
+      <li>Windows Server / Active Directory</li>
+      <li>DHCP / DNS</li>
+      <li>TrueNAS</li>
+      <li>VLAN, HSRP, LACP</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2 class="reveal">Contact</h2>
+    <p class="section-lead reveal">Je recherche une alternance de 12 mois en systèmes et réseaux. N'hésitez pas à me contacter.</p>
+    <div class="card reveal">
+      <ul class="contact-list">
+        <li>Email : <a href="mailto:mohamedbellouza89@gmail.com">mohamedbellouza89@gmail.com</a></li>
+        <li>LinkedIn : <a href="https://www.linkedin.com/in/mohamed-bellouza-27b851228/" target="_blank" rel="noopener">linkedin.com/in/mohamed-bellouza-27b851228</a></li>
+        <li>GitHub : <a href="https://github.com/Momo294517" target="_blank" rel="noopener">github.com/Momo294517</a></li>
+        <li>Localisation : Décines-Charpieu (Lyon)</li>
+      </ul>
+      <p><a class="btn primary" href="cv.pdf" target="_blank" rel="noopener">Télécharger mon CV</a></p>
+    </div>
+  </section>
+
 </main>
 
 <footer>
-  <p>© 2026 Mohamed – Portfolio BTS SIO SISR</p>
+  <p>© 2026 Mohamed Bellouza – Portfolio BTS SIO SISR</p>
 </footer>
 
 <script src="script.js"></script>
