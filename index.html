@@ -81,8 +81,12 @@
       <article class="card reveal">
         <h3>NAS TrueNAS intégré à Active Directory</h3>
         <p class="meta">Systèmes · AP1 en binôme · TrueNAS, ZFS, Active Directory, VMware vSphere</p>
+        <div class="proj-body">
+        <div class="proj-main">
         <p><strong>Contexte :</strong> Étudier les solutions NAS existantes, en choisir une, l'installer et gérer les droits d'accès des utilisateurs et groupes de l'Active Directory.</p>
         <p><strong>Réalisation :</strong> Comparaison des types de NAS (domestique, PME, entreprise) et des solutions logicielles (TrueNAS, OpenMediaVault, Rockstor, XigmaNAS). Choix de TrueNAS pour la fiabilité de ZFS (snapshots, intégrité des données) et son support de l'Active Directory. Installation sur une VM vSphere avec un pool ZFS, adressage IP statique, puis jointure au domaine, vérifiée par le statut « HEALTHY ». Création de trois partages avec ACL : un espace commun accessible aux deux groupes, et un espace réservé à chaque groupe.</p>
+        </div>
+        <div class="proj-side">
         <details>
           <summary>Difficultés rencontrées et solutions</summary>
           <ul>
@@ -96,13 +100,19 @@
         </details>
         <p><strong>Pistes d'amélioration :</strong> valider l'accès aux partages depuis un vrai poste client Windows (faute d'image ISO valide, les tests ont été faits depuis le serveur AD).</p>
         <ul class="tags"><li>TrueNAS</li><li>ZFS</li><li>SMB</li><li>ACL</li><li>Active Directory</li></ul>
+        </div>
+      </div>
       </article>
 
       <article class="card reveal">
         <h3>Infrastructure NTP : service de temps de l'entreprise</h3>
         <p class="meta">Réseaux et systèmes · Atelier professionnel en équipe, novembre 2026 · pfSense, Windows Server, VMware vSphere, Cisco</p>
+        <div class="proj-body">
+        <div class="proj-main">
         <p><strong>Contexte :</strong> Pour le laboratoire fictif GSB, synchroniser tous les équipements sur une source de temps fiable. Dans un domaine Active Directory, Kerberos tolère au maximum 5 minutes d'écart entre deux machines, et des horloges alignées sont indispensables pour comparer les journaux.</p>
         <p><strong>Réalisation :</strong> pfSense configuré en serveur NTP principal, synchronisé sur un pool de serveurs de temps. Le serveur Active Directory se synchronise sur pfSense, et le PC du domaine récupère l'heure auprès de l'AD, soit la chaîne pool, pfSense, AD, PC. Le switch Cisco est administré en SSH, avec un trunk 802.1Q, et le port du PC est placé dans le VLAN de l'AD. Les échanges NTP (UDP 123) ont été analysés avec Wireshark, avec calcul du décalage d'horloge (≈ 0,4 s) et du délai aller-retour (≈ 2,8 ms).</p>
+        </div>
+        <div class="proj-side">
         <details>
           <summary>Difficultés rencontrées et solutions</summary>
           <ul>
@@ -114,6 +124,8 @@
         </details>
         <p><strong>Pistes d'amélioration :</strong> ajouter plusieurs serveurs de temps (3 à 5) dans pfSense, changer le mot de passe administrateur par défaut, et prévoir une règle de pare-feu UDP 123 si des postes sont dans d'autres VLAN.</p>
         <ul class="tags"><li>NTP</li><li>pfSense</li><li>Kerberos</li><li>Wireshark</li><li>VLAN</li><li>w32tm</li></ul>
+        </div>
+      </div>
       </article>
     </div>
   </section>

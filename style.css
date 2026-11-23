@@ -265,3 +265,14 @@ main, footer { position: relative; z-index: 1; }
 .card details ul { margin: 10px 0 0; }
 .card code { background: rgba(var(--accent-rgb), 0.14); color: var(--tag-text); }
 .card ul.tags { padding-left: 0; }
+
+/* ---------- Projets : cartes pleine largeur en deux colonnes ---------- */
+.grid.projects { grid-template-columns: 1fr; gap: 22px; }
+.proj-body { display: grid; grid-template-columns: 1.2fr 1fr; gap: 6px 36px; align-items: start; margin-top: 8px; }
+.proj-side { padding-left: 28px; border-left: 1px solid var(--border); }
+.proj-side details { margin-top: 0; border-top: 0; padding-top: 0; }
+.proj-side .tags { margin-top: 14px; }
+@media (max-width: 860px) {
+  .proj-body { grid-template-columns: 1fr; }
+  .proj-side { padding-left: 0; border-left: 0; border-top: 1px solid var(--border); padding-top: 14px; margin-top: 4px; }
+}
