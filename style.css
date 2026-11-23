@@ -255,3 +255,13 @@ footer { text-align: center; color: var(--muted); font-size: 0.9rem; padding: 70
 /* ---------- Fond animé (réseau de points) ---------- */
 #bg { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
 main, footer { position: relative; z-index: 1; }
+
+/* ---------- Cartes de projets détaillées ---------- */
+.grid.projects { grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); align-items: start; }
+.card .tags { margin-top: 16px; }
+.card .tags li { font-size: 0.8rem; padding: 4px 12px; }
+.card details { margin: 4px 0 12px; padding: 10px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.card summary { cursor: pointer; font-weight: 600; color: var(--accent-2); }
+.card details ul { margin: 10px 0 0; }
+.card code { background: rgba(var(--accent-rgb), 0.14); color: var(--tag-text); }
+.card ul.tags { padding-left: 0; }
