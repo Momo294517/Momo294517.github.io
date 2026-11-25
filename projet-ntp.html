@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projet NTP – Mohamed Bellouza</title>
+  <meta name="description" content="Infrastructure NTP : pfSense en serveur de temps, Active Directory et poste client synchronisés.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="bg" aria-hidden="true"></canvas>
+
+<header class="site-header">
+  <nav>
+    <a class="logo" href="index.html#accueil">Mohamed<span>.</span></a>
+    <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+    <ul class="menu">
+      <li><a href="index.html#accueil">Accueil</a></li>
+      <li><a href="index.html#apropos">À propos</a></li>
+      <li><a class="active" href="index.html#projets">Projets</a></li>
+      <li><a href="index.html#stages">Stages</a></li>
+      <li><a href="index.html#veille">Veille</a></li>
+      <li><a href="index.html#competences">Compétences</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="detail">
+  <a class="back" href="index.html#projets">← Retour aux projets</a>
+  <h1>Infrastructure NTP : service de temps de l'entreprise</h1>
+  <p class="lead">Atelier professionnel réalisé en équipe en novembre 2026 : synchroniser tous les équipements d'une entreprise sur une source de temps fiable.</p>
+  <div class="facts"><div><b>Cadre</b>Atelier pro, BTS SIO SISR</div><div><b>Équipe</b>4 personnes</div><div><b>Outils</b>pfSense, Windows Server, Cisco, Wireshark</div><div><b>Virtualisation</b>VMware vSphere</div></div>
+  <img class="banner" src="img/ntp.svg" alt="Chaîne de synchronisation NTP : pool, pfSense, SRV-AD, PC client">
+
+  <h2>Contexte et objectif</h2>
+  <p>Le projet s'inscrit dans le cas fictif du laboratoire pharmaceutique GSB : un réseau segmenté en VLAN, des serveurs en grande partie virtualisés, et des données stratégiques. L'objectif est de mettre en place une infrastructure NTP pour que tous les équipements et serveurs soient synchronisés sur une source de temps fiable.</p>
+  <p><strong>Pourquoi c'est important :</strong> dans un domaine Active Directory, l'authentification Kerberos tolère par défaut un écart d'horloge de 5 minutes au maximum entre deux machines. Une heure identique partout est aussi indispensable pour comparer les journaux d'événements des serveurs et des équipements réseau.</p>
+  <p><strong>Principe :</strong> NTP fonctionne en UDP sur le port 123. Les sources de temps sont organisées en niveaux, les « stratums » : plus le chiffre est élevé, plus la machine est éloignée de la source de référence. Ici : serveur du pool, puis pfSense, puis l'AD, puis le PC du domaine.</p>
+
+  <h2>Environnement de test</h2>
+  <p>Deux machines virtuelles sur le serveur vSphere : <strong>pfSense</strong> (pare-feu et serveur NTP principal) et <strong>SRV-AD</strong> (Active Directory, DNS). Le client est un PC physique branché sur un switch Cisco, administré en SSH depuis l'AD (VLAN de management 260), relié en trunk 802.1Q au routeur multicouche. Le port du PC a été placé dans le VLAN de l'AD pour qu'ils partagent le même réseau.</p>
+
+  <h2>Réalisation</h2>
+  <ol>
+    <li><strong>pfSense en serveur NTP principal</strong> : service activé dans Services &gt; NTP &gt; Settings, à l'écoute sur l'interface LAN, avec le pool <code>2.pfsense.pool.ntp.org</code> comme source.</li>
+    <li><strong>Active Directory synchronisé sur pfSense</strong> : vérifié avec <code>w32tm /query /status</code> et <code>/peers</code>, qui montrent pfSense comme source.</li>
+    <li><strong>PC du domaine</strong> : l'heure est récupérée automatiquement auprès de l'AD, confirmée après un <code>w32tm /resync</code>.</li>
+    <li><strong>Analyse Wireshark</strong> des échanges NTP (UDP 123) entre le PC et l'AD, avec lecture des champs stratum et Reference ID qui confirment la hiérarchie.</li>
+  </ol>
+
+  <h2>Calcul du décalage d'horloge</h2>
+  <p>À partir des quatre horodatages d'un échange NTP (T1 émission du client, T2 réception par l'AD, T3 émission de la réponse, T4 réception par le client), le décalage vaut θ = ((T2 − T1) + (T3 − T4)) / 2, soit environ <strong>+0,41 s</strong>, et le délai aller-retour environ <strong>2,8 ms</strong>. L'horloge de l'AD avait donc environ 0,4 s d'avance sur celle du PC à cet instant, et le client corrige son horloge à partir de cette mesure.</p>
+
+  <h2>Captures d'écran</h2>
+  <div class="gallery">
+      <figure class="shot reveal"><img src="img/ntp-pfsense-config.png" alt="Configuration du service NTP dans pfSense : interface et serveur du pool" loading="lazy"><figcaption>Configuration du service NTP dans pfSense : interface et serveur du pool</figcaption></figure>
+      <figure class="shot reveal"><img src="img/ntp-pfsense-status.png" alt="État NTP de pfSense : synchronisation avec une source du pool (stratum 2)" loading="lazy"><figcaption>État NTP de pfSense : synchronisation avec une source du pool (stratum 2)</figcaption></figure>
+      <figure class="shot reveal"><img src="img/ntp-ad-w32tm.png" alt="L'Active Directory synchronisé sur pfSense (w32tm /query /status et /peers)" loading="lazy"><figcaption>L'Active Directory synchronisé sur pfSense (w32tm /query /status et /peers)</figcaption></figure>
+      <figure class="shot reveal"><img src="img/ntp-pc-resync.png" alt="Resynchronisation du PC du domaine, qui prend l'AD comme source" loading="lazy"><figcaption>Resynchronisation du PC du domaine, qui prend l'AD comme source</figcaption></figure>
+      <figure class="shot reveal"><img src="img/ntp-switch-trunk.png" alt="Trunk 802.1Q du switch : VLAN natif 1, VLAN 260 à 262 autorisés" loading="lazy"><figcaption>Trunk 802.1Q du switch : VLAN natif 1, VLAN 260 à 262 autorisés</figcaption></figure>
+      <figure class="shot reveal"><img src="img/ntp-wireshark.png" alt="Capture Wireshark des échanges NTP (UDP 123) entre le PC et l'AD" loading="lazy"><figcaption>Capture Wireshark des échanges NTP (UDP 123) entre le PC et l'AD</figcaption></figure>
+      <figure class="shot reveal"><img src="img/ntp-wireshark-reponse.png" alt="Détail d'une réponse NTP de l'AD : mode serveur, stratum 3, Reference ID de pfSense" loading="lazy"><figcaption>Détail d'une réponse NTP de l'AD : mode serveur, stratum 3, Reference ID de pfSense</figcaption></figure>
+    </div>
+
+  <h2>Difficultés rencontrées et solutions</h2>
+  <ul class="plain">
+    <li><strong>Message NATIVE_VLAN_MISMATCH</strong> sur le trunk : VLAN natif aligné sur le VLAN 1. Le routage du VLAN 260 vers le réseau de l'AD a été réglé sur le multicouche avec l'aide du professeur.</li>
+    <li><strong>PC dans le mauvais VLAN</strong> : port déplacé du VLAN 261 au VLAN 260, celui de l'AD.</li>
+    <li><strong>Commande <code>net start w32time</code> refusée</strong> (erreur système 5) : le terminal doit être ouvert en administrateur.</li>
+    <li><strong>Fuseau horaire du PC incorrect</strong> : corrigé sur Paris, sans effet sur la synchronisation qui se fait en UTC.</li>
+  </ul>
+
+  <h2>Conclusion et pistes d'amélioration</h2>
+  <p>L'infrastructure NTP demandée est en place : pfSense se synchronise avec le pool et sert de serveur de temps principal, l'AD se synchronise sur pfSense, et le PC du domaine récupère automatiquement l'heure auprès de l'AD. La capture Wireshark confirme la hiérarchie pool, pfSense, AD, PC.</p>
+  <ul class="plain">
+    <li>Ajouter plusieurs serveurs de temps (3 à 5) dans pfSense, comme le recommande son aide.</li>
+    <li>Remplacer le mot de passe administrateur par défaut de pfSense.</li>
+    <li>Prévoir une règle de pare-feu précise (UDP 123) si des postes sont placés dans d'autres VLAN que celui de l'AD.</li>
+  </ul>
+
+  <h2>Compétences travaillées</h2>
+  <p>Exploiter, dépanner et superviser une solution d'infrastructure réseau (Bloc 2), et garantir la disponibilité et l'intégrité des services (Bloc 3).</p>
+  <ul class="tags reveal"><li>NTP</li><li>pfSense</li><li>Kerberos</li><li>Wireshark</li><li>VLAN</li><li>Trunk 802.1Q</li><li>w32tm</li><li>SSH</li></ul>
+
+  <div class="pager">
+    <a class="btn" href="projet-nas.html">← Projet NAS TrueNAS</a>
+    <a class="btn primary" href="index.html#projets">Tous les projets →</a>
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 Mohamed Bellouza – Portfolio BTS SIO SISR</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

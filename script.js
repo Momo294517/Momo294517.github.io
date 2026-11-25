@@ -11,12 +11,14 @@ if ('IntersectionObserver' in window) {
   items.forEach(function (el) { el.classList.add('visible'); });
 }
 
-// Lien du menu actif selon la section affichée
+// Lien du menu actif selon la section affichée (page d'accueil uniquement)
 var links = document.querySelectorAll('.menu a');
 var sections = Array.prototype.map.call(links, function (a) {
-  return document.querySelector(a.getAttribute('href'));
+  var h = a.getAttribute('href');
+  return h && h.charAt(0) === '#' ? document.querySelector(h) : null;
 });
 function updateActive() {
+  if (!document.querySelector('.hero')) return;
   var pos = window.scrollY + 120;
   var current = 0;
   sections.forEach(function (s, i) { if (s && s.offsetTop <= pos) current = i; });
@@ -102,3 +104,21 @@ links.forEach(function (a) {
   resize();
   draw();
 })();
+
+// Agrandissement des captures d'écran au clic
+document.querySelectorAll('.shot img').forEach(function (img) {
+  img.addEventListener('click', function () {
+    var box = document.createElement('div');
+    box.className = 'lightbox';
+    var big = document.createElement('img');
+    big.src = img.src; big.alt = img.alt;
+    var cap = document.createElement('p');
+    cap.textContent = img.alt;
+    box.appendChild(big); box.appendChild(cap);
+    function close() { box.remove(); document.removeEventListener('keydown', onKey); }
+    function onKey(e) { if (e.key === 'Escape') close(); }
+    box.addEventListener('click', close);
+    document.addEventListener('keydown', onKey);
+    document.body.appendChild(box);
+  });
+});

@@ -68,65 +68,38 @@
 
   <section id="projets">
     <h2 class="reveal">Projets</h2>
-    <p class="section-lead reveal">Les réalisations que j'ai menées pendant mon BTS SIO SISR.</p>
+    <p class="section-lead reveal">Les réalisations que j'ai menées pendant mon BTS SIO SISR. Clique sur un projet pour voir le détail.</p>
     <div class="grid projects">
-      <article class="card reveal">
-        <h3>Réseau d'entreprise sur infrastructure Cisco physique</h3>
-        <p class="meta">Réseaux · Cisco 2911, Cisco 2960, pfSense CE, Windows Server 2022</p>
-        <p><strong>Contexte :</strong> Projet réalisé pendant le BTS SIO SISR à ISITECH Lyon, sur du matériel Cisco physique.</p>
-        <p><strong>Réalisation :</strong> Configuration de routeurs (Cisco 2911) et d'un switch (Cisco 2960) : VLAN, HSRP, EtherChannel (LACP) et router-on-a-stick. Déploiement d'un pare-feu pfSense CE et d'un serveur Windows Server 2022.</p>
-        <ul class="tags"><li>Cisco</li><li>VLAN</li><li>HSRP</li><li>LACP</li><li>pfSense</li></ul>
-      </article>
-
-      <article class="card reveal">
-        <h3>NAS TrueNAS intégré à Active Directory</h3>
-        <p class="meta">Systèmes · AP1 en binôme · TrueNAS, ZFS, Active Directory, VMware vSphere</p>
-        <div class="proj-body">
-        <div class="proj-main">
-        <p><strong>Contexte :</strong> Étudier les solutions NAS existantes, en choisir une, l'installer et gérer les droits d'accès des utilisateurs et groupes de l'Active Directory.</p>
-        <p><strong>Réalisation :</strong> Comparaison des types de NAS (domestique, PME, entreprise) et des solutions logicielles (TrueNAS, OpenMediaVault, Rockstor, XigmaNAS). Choix de TrueNAS pour la fiabilité de ZFS (snapshots, intégrité des données) et son support de l'Active Directory. Installation sur une VM vSphere avec un pool ZFS, adressage IP statique, puis jointure au domaine, vérifiée par le statut « HEALTHY ». Création de trois partages avec ACL : un espace commun accessible aux deux groupes, et un espace réservé à chaque groupe.</p>
+      <a class="card proj-card reveal" href="projet-cisco.html">
+        <img class="thumb" src="img/cisco.svg" alt="Schéma de principe du réseau Cisco : pfSense, deux routeurs Cisco 2911 en HSRP, switch Cisco 2960" loading="lazy">
+        <div class="proj-text">
+          <h3>Réseau d'entreprise sur infrastructure Cisco physique</h3>
+          <p class="meta">Réseaux · Cisco 2911, Cisco 2960, pfSense CE, Windows Server 2022</p>
+          <p>VLAN, HSRP, EtherChannel (LACP) et router-on-a-stick sur du matériel physique, avec un pare-feu pfSense et un serveur Windows Server 2022.</p>
+          <ul class="tags"><li>Cisco</li><li>VLAN</li><li>HSRP</li><li>LACP</li><li>pfSense</li></ul>
+          <span class="more">Voir le projet →</span>
         </div>
-        <div class="proj-side">
-        <details>
-          <summary>Difficultés rencontrées et solutions</summary>
-          <ul>
-            <li>VM qui bootait en boucle sur l'ISO : option « Connecter lors de la mise sous tension » à décocher.</li>
-            <li>Démarrage impossible en BIOS : réinstallation en mode UEFI.</li>
-            <li>Adresse 0.0.0.0 sans serveur DHCP : IP statique configurée en console, avec une adresse distincte de celle de la box.</li>
-            <li>Disques à numéros de série non uniques : option dédiée activée pour créer le pool ZFS.</li>
-            <li>Jointure à l'AD bloquée par un décalage d'horloge entre le NAS et le serveur (tolérance de Kerberos) : synchronisation de l'heure.</li>
-            <li>Groupes AD invisibles : cache de l'annuaire vérifié avec <code>wbinfo -g</code>.</li>
-          </ul>
-        </details>
-        <p><strong>Pistes d'amélioration :</strong> valider l'accès aux partages depuis un vrai poste client Windows (faute d'image ISO valide, les tests ont été faits depuis le serveur AD).</p>
-        <ul class="tags"><li>TrueNAS</li><li>ZFS</li><li>SMB</li><li>ACL</li><li>Active Directory</li></ul>
+      </a>
+      <a class="card proj-card reveal" href="projet-nas.html">
+        <img class="thumb" src="img/nas.svg" alt="Schéma du NAS TrueNAS intégré à l'Active Directory avec trois dossiers partagés" loading="lazy">
+        <div class="proj-text">
+          <h3>NAS TrueNAS intégré à Active Directory</h3>
+          <p class="meta">Systèmes · AP1 en binôme · TrueNAS, ZFS, Active Directory, VMware vSphere</p>
+          <p>Choix, installation et configuration d'un NAS TrueNAS joint au domaine, avec des droits d'accès par groupe sur trois dossiers partagés.</p>
+          <ul class="tags"><li>TrueNAS</li><li>ZFS</li><li>SMB</li><li>ACL</li><li>Active Directory</li></ul>
+          <span class="more">Voir le projet →</span>
         </div>
-      </div>
-      </article>
-
-      <article class="card reveal">
-        <h3>Infrastructure NTP : service de temps de l'entreprise</h3>
-        <p class="meta">Réseaux et systèmes · Atelier professionnel en équipe, novembre 2026 · pfSense, Windows Server, VMware vSphere, Cisco</p>
-        <div class="proj-body">
-        <div class="proj-main">
-        <p><strong>Contexte :</strong> Pour le laboratoire fictif GSB, synchroniser tous les équipements sur une source de temps fiable. Dans un domaine Active Directory, Kerberos tolère au maximum 5 minutes d'écart entre deux machines, et des horloges alignées sont indispensables pour comparer les journaux.</p>
-        <p><strong>Réalisation :</strong> pfSense configuré en serveur NTP principal, synchronisé sur un pool de serveurs de temps. Le serveur Active Directory se synchronise sur pfSense, et le PC du domaine récupère l'heure auprès de l'AD, soit la chaîne pool, pfSense, AD, PC. Le switch Cisco est administré en SSH, avec un trunk 802.1Q, et le port du PC est placé dans le VLAN de l'AD. Les échanges NTP (UDP 123) ont été analysés avec Wireshark, avec calcul du décalage d'horloge (≈ 0,4 s) et du délai aller-retour (≈ 2,8 ms).</p>
+      </a>
+      <a class="card proj-card reveal" href="projet-ntp.html">
+        <img class="thumb" src="img/ntp.svg" alt="Chaîne de synchronisation NTP : pool, pfSense, serveur AD, PC client" loading="lazy">
+        <div class="proj-text">
+          <h3>Infrastructure NTP : service de temps de l'entreprise</h3>
+          <p class="meta">Réseaux et systèmes · Atelier professionnel en équipe · pfSense, Windows Server, Cisco</p>
+          <p>pfSense en serveur de temps, Active Directory et poste client synchronisés en cascade, avec analyse des échanges NTP sous Wireshark.</p>
+          <ul class="tags"><li>NTP</li><li>pfSense</li><li>Kerberos</li><li>Wireshark</li><li>VLAN</li></ul>
+          <span class="more">Voir le projet →</span>
         </div>
-        <div class="proj-side">
-        <details>
-          <summary>Difficultés rencontrées et solutions</summary>
-          <ul>
-            <li>Message NATIVE_VLAN_MISMATCH sur le trunk : VLAN natif aligné sur le VLAN 1.</li>
-            <li>PC dans le mauvais VLAN : port déplacé dans le VLAN de l'AD pour partager le même réseau.</li>
-            <li>Commande <code>net start w32time</code> refusée (erreur 5) : terminal à ouvrir en administrateur.</li>
-            <li>Fuseau horaire du PC incorrect : corrigé sur Paris, sans effet sur la synchronisation qui se fait en UTC.</li>
-          </ul>
-        </details>
-        <p><strong>Pistes d'amélioration :</strong> ajouter plusieurs serveurs de temps (3 à 5) dans pfSense, changer le mot de passe administrateur par défaut, et prévoir une règle de pare-feu UDP 123 si des postes sont dans d'autres VLAN.</p>
-        <ul class="tags"><li>NTP</li><li>pfSense</li><li>Kerberos</li><li>Wireshark</li><li>VLAN</li><li>w32tm</li></ul>
-        </div>
-      </div>
-      </article>
+      </a>
     </div>
   </section>
 

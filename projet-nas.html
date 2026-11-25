@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projet NAS TrueNAS – Mohamed Bellouza</title>
+  <meta name="description" content="NAS TrueNAS intégré à Active Directory : installation, jonction au domaine et droits d'accès par groupe.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="bg" aria-hidden="true"></canvas>
+
+<header class="site-header">
+  <nav>
+    <a class="logo" href="index.html#accueil">Mohamed<span>.</span></a>
+    <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+    <ul class="menu">
+      <li><a href="index.html#accueil">Accueil</a></li>
+      <li><a href="index.html#apropos">À propos</a></li>
+      <li><a class="active" href="index.html#projets">Projets</a></li>
+      <li><a href="index.html#stages">Stages</a></li>
+      <li><a href="index.html#veille">Veille</a></li>
+      <li><a href="index.html#competences">Compétences</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="detail">
+  <a class="back" href="index.html#projets">← Retour aux projets</a>
+  <h1>NAS TrueNAS intégré à Active Directory</h1>
+  <p class="lead">Atelier de professionnalisation n°1, réalisé en binôme : choisir, installer et configurer un NAS, puis gérer les droits d'accès des utilisateurs et des groupes de l'Active Directory.</p>
+  <div class="facts"><div><b>Cadre</b>AP1, BTS SIO SISR</div><div><b>Équipe</b>En binôme</div><div><b>Outils</b>TrueNAS CORE, ZFS, VMware vSphere</div><div><b>Services</b>Active Directory, SMB</div></div>
+  <img class="banner" src="img/nas.svg" alt="Schéma du projet : serveur AD et NAS TrueNAS sur vSphere, trois dossiers partagés avec droits par groupe">
+
+  <h2>Objectifs</h2>
+  <ol>
+    <li>Étudier les solutions de NAS existantes (matériel, logiciels, cloud) et en choisir une.</li>
+    <li>Installer et configurer le NAS choisi.</li>
+    <li>Configurer les droits d'accès des utilisateurs et des groupes de l'Active Directory, et tester l'accès aux dossiers partagés.</li>
+    <li>Valider les tests.</li>
+  </ol>
+
+  <h2>Étude et choix de la solution</h2>
+  <p>Un NAS est un serveur de stockage connecté au réseau, qui centralise, partage et sauvegarde les fichiers de plusieurs utilisateurs. Il existe des NAS domestiques, professionnels pour les PME, et d'entreprise avec haute disponibilité, ainsi que plusieurs solutions logicielles : TrueNAS, OpenMediaVault, Rockstor, XigmaNAS.</p>
+  <p>J'ai retenu <strong>TrueNAS</strong> pour la fiabilité du système de fichiers <strong>ZFS</strong> (intégrité des données, snapshots) et pour son support de l'Active Directory, qui correspondait exactement au besoin de gérer les droits par groupe.</p>
+
+  <h2>Réalisation</h2>
+  <ol>
+    <li><strong>Machine virtuelle</strong> sur un hôte VMware vSphere : 2 vCPU, 8 Go de RAM, un disque de 50 Go pour le système et un disque de 100 Go pour les données. Installation en mode UEFI.</li>
+    <li><strong>Adressage IP statique</strong> configuré en console, puisqu'aucun serveur DHCP n'était présent sur le réseau.</li>
+    <li><strong>Pool ZFS</strong> créé sur le disque de données, avec trois datasets.</li>
+    <li><strong>Jonction au domaine Active Directory</strong> depuis l'interface web, vérifiée par la commande <code>midclt call directoryservices.get_state</code> qui retourne l'état « HEALTHY ».</li>
+    <li><strong>Droits d'accès (ACL)</strong> définis dataset par dataset, avec héritage pour que les règles s'appliquent aux futurs fichiers et sous-dossiers.</li>
+    <li><strong>Vérification de la connectivité</strong> réseau et de la résolution DNS, puis exposition des partages sur le réseau Windows.</li>
+  </ol>
+
+  <h2>Droits d'accès mis en place</h2>
+  <div class="table-wrap"><table>
+    <tr><th>Dossier partagé</th><th>Groupes concernés</th><th>Droits</th></tr>
+    <tr><td>partage-commun</td><td>Informatique et littérature</td><td>Modification</td></tr>
+    <tr><td>partage-informatique</td><td>Informatique uniquement</td><td>Contrôle total</td></tr>
+    <tr><td>partage-litterature</td><td>Littérature uniquement</td><td>Contrôle total</td></tr>
+  </table></div>
+
+  <h2>Captures d'écran</h2>
+  <div class="gallery">
+      <figure class="shot reveal"><img src="img/nas-vm.png" alt="Paramètres de la VM TrueNAS dans vSphere : 2 vCPU, disque système de 50 Go et disque de données de 100 Go" loading="lazy"><figcaption>Paramètres de la VM TrueNAS dans vSphere : 2 vCPU, disque système de 50 Go et disque de données de 100 Go</figcaption></figure>
+      <figure class="shot reveal"><img src="img/nas-ip.png" alt="Adresse IP statique du NAS vérifiée en console" loading="lazy"><figcaption>Adresse IP statique du NAS vérifiée en console</figcaption></figure>
+      <figure class="shot reveal"><img src="img/nas-acl.png" alt="Édition des ACL d'un dataset dans TrueNAS : droits accordés par groupe, avec héritage" loading="lazy"><figcaption>Édition des ACL d'un dataset dans TrueNAS : droits accordés par groupe, avec héritage</figcaption></figure>
+      <figure class="shot reveal"><img src="img/nas-groupes.png" alt="Groupes de l'Active Directory récupérés par le NAS (commande wbinfo -g)" loading="lazy"><figcaption>Groupes de l'Active Directory récupérés par le NAS (commande wbinfo -g)</figcaption></figure>
+    </div>
+
+  <h2>Difficultés rencontrées et solutions</h2>
+  <ul class="plain">
+    <li><strong>La VM bootait en boucle sur l'ISO</strong> : l'option « Connecter lors de la mise sous tension » du lecteur CD/DVD était restée cochée.</li>
+    <li><strong>Démarrage impossible en BIOS</strong> (erreur ACPI de la carte mère) : réinstallation de TrueNAS en démarrage UEFI.</li>
+    <li><strong>Adresse IP à 0.0.0.0</strong> : pas de serveur DHCP et carte réseau non connectée. IP statique appliquée en console.</li>
+    <li><strong>Conflit d'adresse avec la box</strong> : la première adresse choisie ouvrait la page de la box. Remplacée par une adresse libre du réseau.</li>
+    <li><strong>Disques à numéros de série non uniques</strong> : l'option dédiée du Pool Manager a permis de créer le pool ZFS.</li>
+    <li><strong>NAS et serveur AD qui ne communiquaient pas</strong> : leurs horloges étaient trop décalées, ce que Kerberos ne tolère pas. Heure du NAS synchronisée sur celle du serveur.</li>
+    <li><strong>Groupes AD invisibles dans TrueNAS</strong> : cache de l'annuaire pas encore synchronisé, vérifié avec <code>wbinfo -g</code>.</li>
+    <li><strong>Pas de poste client Windows</strong> : aucune image ISO valide n'était disponible, donc les tests ont été faits depuis le serveur AD.</li>
+  </ul>
+
+  <h2>Bilan et suite</h2>
+  <p>Le NAS est intégré au domaine, les groupes sont reconnus et les droits sont configurés par dataset. Au moment de la rédaction du compte rendu, l'accès SMB depuis le serveur AD n'avait pas pu être validé : les tentatives de correction faisaient planter le NAS, dont la configuration n'était pas conservée au redémarrage. La suite logique est de valider les accès depuis un vrai poste client Windows pour démontrer l'étanchéité des dossiers entre les groupes.</p>
+
+  <h2>Compétences travaillées</h2>
+  <p>Installer, tester et déployer une solution d'infrastructure (Bloc 2), et garantir la confidentialité des données par la gestion des droits d'accès (Bloc 3).</p>
+  <ul class="tags reveal"><li>TrueNAS</li><li>ZFS</li><li>SMB</li><li>ACL</li><li>Active Directory</li><li>VMware vSphere</li><li>Kerberos</li></ul>
+
+  <div class="pager">
+    <a class="btn" href="projet-cisco.html">← Projet Cisco</a>
+    <a class="btn primary" href="projet-ntp.html">Projet NTP →</a>
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 Mohamed Bellouza – Portfolio BTS SIO SISR</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

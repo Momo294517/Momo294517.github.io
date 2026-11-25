@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projet Cisco – Mohamed Bellouza</title>
+  <meta name="description" content="Réseau d'entreprise sur infrastructure Cisco physique : VLAN, HSRP, EtherChannel, pfSense.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="bg" aria-hidden="true"></canvas>
+
+<header class="site-header">
+  <nav>
+    <a class="logo" href="index.html#accueil">Mohamed<span>.</span></a>
+    <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+    <ul class="menu">
+      <li><a href="index.html#accueil">Accueil</a></li>
+      <li><a href="index.html#apropos">À propos</a></li>
+      <li><a class="active" href="index.html#projets">Projets</a></li>
+      <li><a href="index.html#stages">Stages</a></li>
+      <li><a href="index.html#veille">Veille</a></li>
+      <li><a href="index.html#competences">Compétences</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="detail">
+  <a class="back" href="index.html#projets">← Retour aux projets</a>
+  <h1>Réseau d'entreprise sur infrastructure Cisco physique</h1>
+  <p class="lead">Mise en place d'un réseau segmenté et redondant sur du matériel Cisco physique, avec un pare-feu pfSense et un serveur Windows Server 2022.</p>
+  <div class="facts"><div><b>Domaine</b>Réseaux</div><div><b>Cadre</b>BTS SIO SISR, ISITECH Lyon</div><div><b>Matériel</b>Cisco 2911, Cisco 2960</div><div><b>Logiciels</b>pfSense CE, Windows Server 2022</div></div>
+  <img class="banner" src="img/cisco.svg" alt="Schéma de principe : Internet, pfSense, deux routeurs Cisco 2911 en HSRP, switch Cisco 2960, serveur et postes">
+
+  <h2>Ce que j'ai mis en place</h2>
+  <ul class="plain">
+    <li><strong>Segmentation en VLAN</strong> sur le switch Cisco 2960, pour séparer les flux des différents services.</li>
+    <li><strong>Routage inter-VLAN en router-on-a-stick</strong> sur les routeurs Cisco 2911 : une seule liaison trunk 802.1Q portant plusieurs sous-interfaces, une par VLAN.</li>
+    <li><strong>HSRP</strong> : deux routeurs partagent une adresse de passerelle virtuelle. Si l'un tombe, l'autre prend le relais sans que les postes aient à changer de configuration.</li>
+    <li><strong>EtherChannel (LACP)</strong> : plusieurs liens physiques agrégés en un seul lien logique, pour plus de débit et de tolérance aux pannes.</li>
+    <li><strong>Pare-feu pfSense CE</strong> pour filtrer et contrôler les échanges entre les réseaux.</li>
+    <li><strong>Serveur Windows Server 2022</strong> pour les services du réseau.</li>
+  </ul>
+
+  <h2>Compétences travaillées</h2>
+  <p>Concevoir, installer, tester et déployer une solution d'infrastructure réseau, puis l'exploiter et la dépanner (Bloc 2 du BTS SIO SISR).</p>
+  <ul class="tags reveal"><li>Cisco</li><li>VLAN</li><li>Router-on-a-stick</li><li>HSRP</li><li>LACP</li><li>pfSense</li><li>Windows Server 2022</li></ul>
+
+  <div class="pager">
+    <a class="btn" href="index.html#projets">← Tous les projets</a>
+    <a class="btn primary" href="projet-nas.html">Projet NAS TrueNAS →</a>
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 Mohamed Bellouza – Portfolio BTS SIO SISR</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
