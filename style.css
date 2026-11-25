@@ -313,3 +313,26 @@ a.proj-card { display: flex; flex-direction: column; padding: 0; overflow: hidde
 .lightbox { position: fixed; inset: 0; z-index: 200; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; background: rgba(var(--bg-rgb), 0.95); cursor: zoom-out; animation: rise 0.3s ease; }
 .lightbox img { max-width: 94vw; max-height: 78vh; border-radius: 10px; border: 1px solid var(--accent); box-shadow: 0 0 50px rgba(var(--accent-rgb), 0.25); }
 .lightbox p { margin: 14px 0 0; color: var(--muted); max-width: 800px; text-align: center; }
+
+/* ---------- Tableau d'analyse des sources ---------- */
+main.detail.wide { max-width: 1240px; }
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 12px; }
+.sources-table { border-collapse: collapse; width: 100%; min-width: 1180px; max-width: none; background: var(--surface); font-size: 0.85rem; }
+.sources-table th { position: sticky; top: 0; background: #0b2418; color: var(--accent-2); text-transform: uppercase; font-size: 0.7rem; letter-spacing: 0.8px; padding: 12px 10px; white-space: nowrap; }
+.sources-table td { padding: 12px 10px; vertical-align: top; border-bottom: 1px solid var(--border); }
+.sources-table tr:hover td { background: rgba(var(--accent-rgb), 0.07); }
+.sources-table td.t { min-width: 260px; font-weight: 600; }
+.sources-table td.com { min-width: 320px; color: var(--muted); }
+.sources-table td.c { text-align: center; }
+.sources-table td.nw { white-space: nowrap; }
+.reco { display: inline-block; padding: 3px 12px; border-radius: 999px; font-weight: 700; font-size: 0.78rem; white-space: nowrap; }
+.reco.ok { background: rgba(var(--accent-rgb), 0.18); color: var(--accent); }
+.reco.no { background: rgba(251, 146, 60, 0.18); color: #fdba74; }
+table.bareme { min-width: 640px; font-size: 0.85rem; }
+.bareme td:first-child { font-weight: 600; color: var(--accent-2); }
+.btn-row { margin-top: 16px; }
+
+.sources-table { min-width: 980px; }
+.sources-table td.t { min-width: 240px; }
+.sources-table td.com { min-width: 280px; }
+.sources-table .src { display: block; margin-top: 6px; font-weight: 400; font-size: 0.78rem; color: var(--muted); }

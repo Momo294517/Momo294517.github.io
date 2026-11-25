@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tableau d'analyse des sources – Mohamed Bellouza</title>
+  <meta name="description" content="Tableau d'analyse des sources de ma veille technologique sur la sécurité des jeux en ligne.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="bg" aria-hidden="true"></canvas>
+
+<header class="site-header">
+  <nav>
+    <a class="logo" href="index.html#accueil">Mohamed<span>.</span></a>
+    <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+    <ul class="menu">
+      <li><a href="index.html#accueil">Accueil</a></li>
+      <li><a href="index.html#apropos">À propos</a></li>
+      <li><a href="index.html#projets">Projets</a></li>
+      <li><a href="index.html#stages">Stages</a></li>
+      <li><a class="active" href="index.html#veille">Veille</a></li>
+      <li><a href="index.html#competences">Compétences</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="detail wide">
+  <a class="back" href="index.html#veille">← Retour à la veille technologique</a>
+  <h1>Tableau d'analyse des sources</h1>
+  <p class="lead">Chaque source de ma veille sur la sécurité des jeux en ligne est évaluée selon trois critères, puis retenue ou écartée.</p>
+  <p><a class="btn primary" href="tableau-analyse-sources.xlsx" download>Télécharger le fichier Excel</a></p>
+
+  <div class="facts">
+    <div><b>Sources analysées</b>12</div>
+    <div><b>Sources retenues</b>11</div>
+    <div><b>Sources écartées</b>1</div>
+    <div><b>Taux de validation</b>92 %</div>
+  </div>
+
+  <h2>Méthode de notation</h2>
+  <div class="card">
+    <p>Chaque critère est noté de 1 (faible) à 4 (fort). Le score total est pondéré : <strong>pertinence du thème × 3</strong> + <strong>date × 4</strong> + <strong>fiabilité de la source × 3</strong>. Une source est <strong>retenue à partir de 24 points</strong> sur 40.</p>
+    <div class="table-wrap"><table class="bareme">
+      <tr><th>Note</th><th>1</th><th>2</th><th>3</th><th>4</th></tr>
+      <tr><td>Pertinence du thème</td><td>Aucune pertinence</td><td>Thème qui manque de lien</td><td>Thème en lien</td><td>Très pertinente</td></tr>
+      <tr><td>Date</td><td>Plus de 3 ans</td><td>2 à 3 ans</td><td>Moins d'un an</td><td>Année en cours</td></tr>
+      <tr><td>Fiabilité de la source</td><td>Source non crédible</td><td>Crédible mais non vérifiée</td><td>Vérifiée et fiable</td><td>Source très sûre</td></tr>
+    </table></div>
+    <p class="meta">Le barème ne couvre pas l'intervalle de 1 à 2 ans : les sources de cet âge sont notées 2.</p>
+  </div>
+
+  <h2>Les sources</h2>
+  <p class="meta">Un clic sur un titre ouvre la source. Le fichier Excel contient en plus les colonnes auteur, site et date séparées.</p>
+  <div class="table-wrap sources">
+    <table class="sources-table">
+      <thead><tr>
+        <th>N°</th><th>Source</th><th>Mots clés</th><th>Type de veille</th>
+        <th title="Pertinence du thème">Pert.</th><th title="Date">Date</th><th title="Fiabilité">Fiab.</th><th>Score</th><th>Recommandation</th><th>Commentaires</th>
+      </tr></thead>
+      <tbody>
+        <tr>
+          <td class="c">1</td>
+          <td class="t"><a href="https://blog.cloudflare.com/ddos-threat-report-2026-q3/" target="_blank" rel="noopener">Cloudflare DDoS Threat Report 2026 Q3 : More swarms, fewer giants</a><span class="src">Cloudforce One (Cloudflare) · blog.cloudflare.com · 29/10/2026</span></td>
+          <td>DDoS, botnet, attaques réseau, rapport trimestriel</td>
+          <td>Cybersécurité</td>
+          <td class="c">3</td><td class="c">4</td><td class="c">4</td>
+          <td class="c"><strong>37</strong></td>
+          <td><span class="reco ok">Retenir</span></td>
+          <td class="com">Données issues du réseau mondial de Cloudflare : 18,2 millions d&#x27;attaques réseau bloquées, avec une hausse des attaques courtes. Le jeu vidéo n&#x27;est pas cité : sert à illustrer les menaces visant tous les services en ligne, dont les serveurs de jeu.</td>
+        </tr>
+        <tr>
+          <td class="c">2</td>
+          <td class="t"><a href="https://www.malwarebytes.com/fr/blog/data-breaches/2026/10/resident-evil-maker-capcom-warns-of-phishing-after-11-7-million-records-exposed" target="_blank" rel="noopener">Capcom, le créateur de Resident Evil, met en garde contre le hameçonnage après la fuite de 11,7 millions d&#x27;enregistrements</a><span class="src">Pieter Arntz · Malwarebytes (blog) · 23/10/2026</span></td>
+          <td>fuite de données, comptes joueurs, hameçonnage, double authentification</td>
+          <td>Cybersécurité</td>
+          <td class="c">4</td><td class="c">4</td><td class="c">3</td>
+          <td class="c"><strong>37</strong></td>
+          <td><span class="reco ok">Retenir</span></td>
+          <td class="com">Fuite de données de comptes CAPCOM ID (e-mails, adresses IP, dates de naissance pour une minorité). Pas de cartes bancaires touchées selon l&#x27;éditeur. Conseils : double authentification et connexion via le site officiel.</td>
+        </tr>
+        <tr>
+          <td class="c">3</td>
+          <td class="t"><a href="https://www.it-connect.fr/gta-6-rockstar-games-confirme-le-vol-de-donnees-par-shinyhunters/" target="_blank" rel="noopener">GTA 6 – Rockstar Games confirme le vol de données par ShinyHunters</a><span class="src">Florian Burnel · IT-Connect · 13/04/2026</span></td>
+          <td>fuite de données, ShinyHunters, prestataire tiers, Snowflake, rançon</td>
+          <td>Cybersécurité</td>
+          <td class="c">3</td><td class="c">4</td><td class="c">3</td>
+          <td class="c"><strong>34</strong></td>
+          <td><span class="reco ok">Retenir</span></td>
+          <td class="com">Attaque passée par un outil tiers basé sur l&#x27;IA, puis par les instances Snowflake de l&#x27;éditeur. Données principalement commerciales, sans données de joueurs selon l&#x27;article. Illustre le risque lié aux prestataires (chaîne d&#x27;approvisionnement). Version de l&#x27;éditeur à relativiser.</td>
+        </tr>
+        <tr>
+          <td class="c">4</td>
+          <td class="t"><a href="https://www.malwarebytes.com/fr/blog/data-breaches/2026/06/data-of-2-4-million-vrchat-users-stolen" target="_blank" rel="noopener">VRChat affirme que la fuite de données signalée n&#x27;a jamais eu lieu</a><span class="src">Pieter Arntz · Malwarebytes (blog) · 11/06/2026</span></td>
+          <td>fuite de données, allégation, démenti, VRChat, vérification</td>
+          <td>Cybersécurité</td>
+          <td class="c">3</td><td class="c">4</td><td class="c">2</td>
+          <td class="c"><strong>31</strong></td>
+          <td><span class="reco ok">Retenir</span></td>
+          <td class="com">Un avis de violation évoque 2,4 millions d&#x27;utilisateurs, mais l&#x27;éditeur le conteste. La fuite n&#x27;est pas confirmée : à citer avec prudence, et un bon exemple de la nécessité de recouper les informations avant de les relayer.</td>
+        </tr>
+        <tr>
+          <td class="c">5</td>
+          <td class="t"><a href="https://techcrunch.com/2025/05/03/how-riot-games-is-fighting-the-war-against-video-game-hackers/" target="_blank" rel="noopener">How Riot Games is fighting the war against video game hackers</a><span class="src">Lorenzo Franceschi-Bicchierai · TechCrunch · 03/05/2025</span></td>
+          <td>anti-triche, Vanguard, noyau, Riot Games, bannissement</td>
+          <td>Technologique</td>
+          <td class="c">4</td><td class="c">2</td><td class="c">3</td>
+          <td class="c"><strong>29</strong></td>
+          <td><span class="reco ok">Retenir</span></td>
+          <td class="com">Média indépendant qui interroge l&#x27;équipe anti-triche de Riot : Vanguard au niveau du noyau, empreinte matérielle, bannissements progressifs. Entre 1 et 2 ans : date notée 2 (le barème ne couvre pas cet intervalle).</td>
+        </tr>
+        <tr>
+          <td class="c">6</td>
+          <td class="t"><a href="https://arxiv.org/abs/2508.06348" target="_blank" rel="noopener">AntiCheatPT : A Transformer-Based Approach to Cheat Detection in Competitive Computer Games</a><span class="src">Mille Mei Zhen Loo, Gert Luzkov, Paolo Burelli · arXiv (prépublication) · 08/08/2025</span></td>
+          <td>intelligence artificielle, transformer, détection de triche, Counter-Strike 2</td>
+          <td>Technologique</td>
+          <td class="c">4</td><td class="c">2</td><td class="c">3</td>
+          <td class="c"><strong>29</strong></td>
+          <td><span class="reco ok">Retenir</span></td>
+          <td class="com">Article de recherche : un modèle d&#x27;IA détecte la triche dans Counter-Strike 2 (89,17 % de précision) sur un jeu de données de 795 matchs. Prépublication : méthode à lire avec recul. Entre 1 et 2 ans : date notée 2.</td>
+        </tr>
+        <tr>
+          <td class="c">7</td>
+          <td class="t"><a href="https://www.leagueoflegends.com/en-sg/news/dev/dev-vanguard-x-lol-retrospective/" target="_blank" rel="noopener">/dev: Vanguard x LoL Retrospective</a><span class="src">mirageofpenguins (Riot Games) · leagueoflegends.com · 22/08/2024</span></td>
+          <td>anti-triche, Vanguard, League of Legends, bots, faux positifs</td>
+          <td>Technologique</td>
+          <td class="c">4</td><td class="c">2</td><td class="c">3</td>
+          <td class="c"><strong>29</strong></td>
+          <td><span class="reco ok">Retenir</span></td>
+          <td class="com">Bilan de l&#x27;éditeur après le déploiement de Vanguard : plus de 175 000 comptes bannis, scripts en classé sous 1 %, faux positifs sous 0,01 % des bannissements. Chiffres fournis par l&#x27;éditeur lui-même, donc à relativiser.</td>
+        </tr>
+        <tr>
+          <td class="c">8</td>
+          <td class="t"><a href="https://www.ea.com/fr-fr/news/ea-anticheat-safety" target="_blank" rel="noopener">EA anticheat met tout le monde sur un pied d&#x27;égalité</a><span class="src">Electronic Arts (rubrique Actualités) · ea.com · 22/08/2024</span></td>
+          <td>anti-triche, mode noyau, EA, sécurité, confidentialité</td>
+          <td>Technologique</td>
+          <td class="c">4</td><td class="c">2</td><td class="c">3</td>
+          <td class="c"><strong>29</strong></td>
+          <td><span class="reco ok">Retenir</span></td>
+          <td class="com">Présentation par l&#x27;éditeur de son anti-triche en mode noyau : près de 5 millions de tentatives neutralisées, plus de 20 millions de joueurs PC concernés. Communication de l&#x27;éditeur : chiffres non vérifiés de façon indépendante.</td>
+        </tr>
+        <tr>
+          <td class="c">9</td>
+          <td class="t"><a href="https://global.techradar.com/fr-fr/gaming/tricheurs-de-call-of-duty-preparez-vous-lia-prend-les-renes-avec-19-000-bans-dans-black-ops-6" target="_blank" rel="noopener">Call of Duty : l&#x27;IA prend les rênes contre les tricheurs, avec 19 000 bans dans Black Ops 6</a><span class="src">Non précisé · TechRadar (édition française) · 28/11/2024</span></td>
+          <td>anti-triche, Ricochet, intelligence artificielle, bannissements</td>
+          <td>Technologique</td>
+          <td class="c">3</td><td class="c">2</td><td class="c">3</td>
+          <td class="c"><strong>26</strong></td>
+          <td><span class="reco ok">Retenir</span></td>
+          <td class="com">Annonce de l&#x27;ajout d&#x27;IA à l&#x27;anti-triche Ricochet (mode noyau), avec plus de 19 000 bannissements en classé. L&#x27;article ne détaille pas le fonctionnement de l&#x27;IA : à compléter avec d&#x27;autres sources.</td>
+        </tr>
+        <tr>
+          <td class="c">10</td>
+          <td class="t"><a href="https://www.riotgames.com/en/news/a-message-about-vanguard-from-our-security-privacy-teams" target="_blank" rel="noopener">A Message About Vanguard From Our Security &amp; Privacy Teams</a><span class="src">The Riot Security Team (Chris Hymes et al.) · riotgames.com · 17/04/2020</span></td>
+          <td>Vanguard, pilote noyau, vie privée, audit, bug bounty</td>
+          <td>Cybersécurité</td>
+          <td class="c">4</td><td class="c">1</td><td class="c">4</td>
+          <td class="c"><strong>28</strong></td>
+          <td><span class="reco ok">Retenir</span></td>
+          <td class="com">Source primaire : Riot justifie le pilote noyau, affirme ne pas envoyer d&#x27;informations sur l&#x27;ordinateur du joueur et annonce des audits et une prime aux bugs. Ancienne mais fondamentale pour comprendre le compromis entre protection et sécurité du poste.</td>
+        </tr>
+        <tr>
+          <td class="c">11</td>
+          <td class="t"><a href="https://www.pcgamer.com/valorants-always-on-anti-cheat-system-is-an-important-tool-in-our-fight-against-cheaters-says-riot" target="_blank" rel="noopener">Valorant&#x27;s always-on anti-cheat system is &#x27;an important tool in our fight against cheaters,&#x27; says Riot</a><span class="src">Non précisé · PC Gamer · 14/04/2020</span></td>
+          <td>Vanguard, pilote noyau, Valorant, inquiétudes des joueurs</td>
+          <td>Technologique</td>
+          <td class="c">4</td><td class="c">1</td><td class="c">3</td>
+          <td class="c"><strong>25</strong></td>
+          <td><span class="reco ok">Retenir</span></td>
+          <td class="com">Article de presse qui relaie la position de Riot et les inquiétudes des joueurs sur les droits étendus d&#x27;un pilote noyau. Ancienne et redondante avec la source officielle de Riot : gardée pour le point de vue des joueurs.</td>
+        </tr>
+        <tr>
+          <td class="c">12</td>
+          <td class="t"><a href="https://tuta.com/blog/riot-requires-kernel-level-anticheat" target="_blank" rel="noopener">Riot Requires Kernel Level Anti-Cheat Software</a><span class="src">Brandon · tuta.com (blog) · 29/02/2024</span></td>
+          <td>Vanguard, noyau, vie privée, logiciel propriétaire, opinion</td>
+          <td>Technologique</td>
+          <td class="c">3</td><td class="c">2</td><td class="c">2</td>
+          <td class="c"><strong>23</strong></td>
+          <td><span class="reco no">À écarter</span></td>
+          <td class="com">Article d&#x27;opinion publié par un éditeur de messagerie chiffrée : biais commercial et angle volontairement critique, sans point de vue équilibré. Écarté de l&#x27;argumentaire, mais utile pour connaître les critiques sur la vie privée.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="pager">
+    <a class="btn" href="index.html#veille">← Retour à la veille</a>
+    <a class="btn primary" href="tableau-analyse-sources.xlsx" download>Télécharger le fichier Excel</a>
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 Mohamed Bellouza – Portfolio BTS SIO SISR</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

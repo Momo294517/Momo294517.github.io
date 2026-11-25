@@ -119,41 +119,80 @@
 
   <section id="veille">
     <h2 class="reveal">Veille technologique</h2>
-    <p class="section-lead reveal">Les sujets que je suis pour rester à jour dans les systèmes, réseaux et la cybersécurité.</p>
+    <p class="section-lead reveal">La sécurité des jeux en ligne : anti-triche, attaques DDoS, protection des comptes, et rôle de l'IA.</p>
 
     <div class="card reveal">
-      <h3>Sujet de ma veille</h3>
-      <p>[Sujet choisi, ex. : la cybersécurité, le cloud, la virtualisation… et pourquoi il t'intéresse.]</p>
+      <h3>Sujet et problématique</h3>
+      <p>Les jeux en ligne rassemblent des millions de joueurs, et donc des cibles pour les tricheurs, les attaquants réseau et les voleurs de comptes. Passionné de jeux vidéo, j'ai choisi d'étudier comment les éditeurs protègent leur infrastructure et leurs joueurs.</p>
+      <p><strong>Problématique :</strong> comment les éditeurs de jeux en ligne sécurisent-ils leurs systèmes et leurs joueurs, et que change l'intelligence artificielle, côté défense comme côté attaque ?</p>
+      <p>Ce sujet rejoint mon option SISR : sécurité des postes et des serveurs, disponibilité des services face aux attaques, protection des données des utilisateurs.</p>
+    </div>
+
+    <div class="card reveal" style="margin-top:20px">
+      <h3>Tableau d'analyse des sources</h3>
+      <p>J'évalue chaque source de ma veille (pertinence, date, fiabilité) et je la retiens ou l'écarte. Le tableau complet est consultable en ligne, avec le fichier Excel à télécharger.</p>
+      <p class="btn-row"><a class="btn primary" href="tableau-sources.html">Voir le tableau d'analyse →</a> <a class="btn" href="tableau-analyse-sources.xlsx" download>Télécharger l'Excel</a></p>
+    </div>
+
+    <h3 class="sub reveal">Les axes suivis</h3>
+    <div class="grid">
+      <article class="card reveal"><h3>Anti-triche</h3><p>Comment détecter un logiciel de triche, du simple scan des processus jusqu'au pilote qui s'exécute au niveau du noyau de Windows, et quels risques cela crée pour le poste du joueur.</p></article>
+      <article class="card reveal"><h3>Attaques DDoS</h3><p>Comment les serveurs de jeu résistent aux attaques par déni de service : filtrage, répartition de charge, protection réseau.</p></article>
+      <article class="card reveal"><h3>Comptes et données</h3><p>Fuites de données chez les éditeurs, vol de comptes, authentification multifacteur, conformité au RGPD.</p></article>
+      <article class="card reveal"><h3>Intelligence artificielle</h3><p>L'IA qui détecte les tricheurs et les bots, et l'IA utilisée pour tricher ou attaquer.</p></article>
+    </div>
+
+    <h3 class="sub reveal">Notions clés</h3>
+    <div class="card reveal">
+      <ul>
+        <li><strong>Mode utilisateur et noyau :</strong> un programme classique s'exécute avec des droits limités. Un pilote chargé dans le noyau a presque tous les droits sur la machine, ce qui lui permet de mieux surveiller le jeu, mais augmente le risque si le pilote a une faille.</li>
+        <li><strong>Détection côté client :</strong> analyse des processus, de l'intégrité des fichiers du jeu et de la mémoire sur le poste du joueur.</li>
+        <li><strong>Détection côté serveur :</strong> le serveur vérifie que les actions sont possibles et repère les comportements statistiquement anormaux.</li>
+        <li><strong>DDoS :</strong> saturation d'un service par un très grand nombre de requêtes venant de nombreuses machines.</li>
+      </ul>
     </div>
 
     <h3 class="sub reveal">Mes sources</h3>
     <ul class="tags reveal">
-      <li>[Site / blog]</li>
-      <li>[Chaîne YouTube / podcast]</li>
-      <li>[Newsletter]</li>
-      <li>[Flux RSS]</li>
+      <li><a href="https://blog.cloudflare.com/" target="_blank" rel="noopener">Blog de Cloudflare</a></li>
+      <li><a href="https://www.riotgames.com/" target="_blank" rel="noopener">Riot Games</a></li>
+      <li><a href="https://www.malwarebytes.com/fr/blog" target="_blank" rel="noopener">Malwarebytes</a></li>
+      <li><a href="https://www.it-connect.fr/" target="_blank" rel="noopener">IT-Connect</a></li>
+      <li><a href="https://techcrunch.com/" target="_blank" rel="noopener">TechCrunch</a></li>
+      <li><a href="https://arxiv.org/" target="_blank" rel="noopener">arXiv</a></li>
     </ul>
 
     <h3 class="sub reveal">Mes outils de veille</h3>
     <div class="card reveal">
       <ul>
-        <li>[Ex. : lecteur de flux RSS]</li>
-        <li>[Ex. : alertes Google]</li>
-        <li>[Ex. : outil de prise de notes]</li>
+        <li>Lecteur de flux RSS (Feedly) pour regrouper les sources au même endroit</li>
+        <li>Alertes Google sur « anti-cheat », « DDoS jeux en ligne » et « piratage comptes joueurs »</li>
+        <li>Fiches de synthèse : date, source, résumé et ce que j'en retiens</li>
       </ul>
     </div>
 
     <h3 class="sub reveal">Dernières actualités</h3>
     <div class="grid">
       <article class="card reveal">
-        <h3>[Titre de l'article]</h3>
-        <p class="meta">[Date] · [Source]</p>
-        <p>[Résumé en 2-3 phrases, avec tes mots.]</p>
+        <h3>Rapport Cloudflare sur les attaques DDoS, 3e trimestre 2026</h3>
+        <p class="meta">29 octobre 2026 · Cloudflare</p>
+        <p>Cloudflare observe une évolution vers de nombreuses attaques courtes plutôt que quelques attaques géantes : 18,2 millions d'attaques réseau bloquées sur le trimestre. Les attaques supérieures à 1 Tbps ont fortement baissé, un recul que le rapport relie à des actions contre de grands botnets d'objets connectés.</p>
+        <p><strong>Ce que j'en retiens :</strong> la protection ne peut pas être manuelle, elle doit être automatique et permanente. Le jeu vidéo n'est pas cité dans ce rapport, mais les mêmes techniques visent les services en ligne, dont les serveurs de jeu.</p>
+        <p><a href="https://blog.cloudflare.com/ddos-threat-report-2026-q3/" target="_blank" rel="noopener">Lire la source →</a></p>
       </article>
       <article class="card reveal">
-        <h3>[Titre de l'article]</h3>
-        <p class="meta">[Date] · [Source]</p>
-        <p>[Résumé en 2-3 phrases.]</p>
+        <h3>Vanguard : un anti-triche qui s'exécute au niveau du noyau</h3>
+        <p class="meta">14 avril 2020 · PC Gamer (article de référence)</p>
+        <p>Riot Games explique que Vanguard charge un pilote noyau au démarrage de Windows, pour empêcher un logiciel de triche de s'y glisser avant lui. Riot affirme avoir limité ses droits, fait relire le code par des chercheurs externes et ne pas collecter d'informations sur le système. Des joueurs s'inquiétaient qu'un pilote noyau ait des droits étendus.</p>
+        <p><strong>Ce que j'en retiens :</strong> c'est un compromis entre efficacité de la protection et sécurité du poste utilisateur, qui rejoint la notion de moindre privilège.</p>
+        <p><a href="https://www.pcgamer.com/valorants-always-on-anti-cheat-system-is-an-important-tool-in-our-fight-against-cheaters-says-riot" target="_blank" rel="noopener">Lire la source →</a></p>
+      </article>
+      <article class="card reveal">
+        <h3>Call of Duty : l'IA s'ajoute à l'anti-triche Ricochet</h3>
+        <p class="meta">28 novembre 2024 · TechRadar</p>
+        <p>Activision renforce son anti-triche Ricochet, qui s'exécute au niveau du noyau, avec de l'intelligence artificielle. Plus de 19 000 bannissements ont été annoncés dans le mode classé de Black Ops 6, une semaine après son lancement.</p>
+        <p><strong>Ce que j'en retiens :</strong> l'IA accélère la détection et les sanctions, mais l'article ne détaille pas son fonctionnement. Un point à approfondir dans mes prochaines lectures.</p>
+        <p><a href="https://global.techradar.com/fr-fr/gaming/tricheurs-de-call-of-duty-preparez-vous-lia-prend-les-renes-avec-19-000-bans-dans-black-ops-6" target="_blank" rel="noopener">Lire la source →</a></p>
       </article>
     </div>
   </section>
