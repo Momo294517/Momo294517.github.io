@@ -358,3 +358,16 @@ table.bareme { min-width: 640px; font-size: 0.85rem; }
 .hero{flex-direction:column;align-items:stretch;justify-content:center}
 .hero-inner>*{animation:none}
 .hero-inner>*{animation:rise .9s ease both}
+
+.shot.full img{height:auto;object-fit:contain;background:#fff}
+.shot.full:hover{transform:none}
+.src-links{padding-left:20px}.src-links li{margin-bottom:6px}
+/* Compétences en pourcentages */
+.skill{margin:14px 0}
+.skill .top{display:flex;justify-content:space-between;font-size:.95rem;margin-bottom:6px}
+.skill .top b{color:var(--accent-2)}
+.skill .bar{height:9px;border-radius:999px;background:rgba(var(--accent-rgb),.15);overflow:hidden}
+.skill .bar i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--accent-strong),var(--accent-2));transition:width 1.3s cubic-bezier(.2,.8,.2,1)}
+.visible .skill .bar i,.skill.visible .bar i{width:var(--p)}
+.skill-note{font-size:.85rem;color:var(--muted);margin-top:18px}
+.skill .top{gap:12px}.skill .top b{white-space:nowrap}

@@ -52,128 +52,24 @@
     <p class="meta">Le barème ne couvre pas l'intervalle de 1 à 2 ans : les sources de cet âge sont notées 2.</p>
   </div>
 
-  <h2>Les sources</h2>
-  <p class="meta">Un clic sur un titre ouvre la source. Le fichier Excel contient en plus les colonnes auteur, site et date séparées.</p>
-  <div class="table-wrap sources">
-    <table class="sources-table">
-      <thead><tr>
-        <th>N°</th><th>Source</th><th>Mots clés</th><th>Type de veille</th>
-        <th title="Pertinence du thème">Pert.</th><th title="Date">Date</th><th title="Fiabilité">Fiab.</th><th>Score</th><th>Recommandation</th><th>Commentaires</th>
-      </tr></thead>
-      <tbody>
-        <tr>
-          <td class="c">1</td>
-          <td class="t"><a href="https://www.usenix.org/conference/srecon26americas/presentation/nanda" target="_blank" rel="noopener">Intelligent Load Balancing in Kubernetes</a><span class="src">Gaurav Nanda et Vincent Cheng (Databricks) · usenix.org (SREcon26 Americas) · 26/03/2026</span></td>
-          <td>répartition de charge, Kubernetes, latence, kube-proxy, couche 7</td>
-          <td>Technologique</td>
-          <td class="c">4</td><td class="c">4</td><td class="c">4</td>
-          <td class="c"><strong>40</strong></td>
-          <td><span class="reco ok">Retenir</span></td>
-          <td class="com">Conférence d&#x27;ingénieurs de Databricks : la répartition de charge par défaut de Kubernetes est inégale avec des connexions persistantes ; ils présentent un routage en couche 7 qui stabilise la latence. Source très sûre (conférence professionnelle, intervenants identifiés).</td>
-        </tr>
-        <tr>
-          <td class="c">2</td>
-          <td class="t"><a href="https://pve.proxmox.com/wiki/High_Availability" target="_blank" rel="noopener">High Availability (ha-manager)</a><span class="src">Proxmox Server Solutions GmbH · pve.proxmox.com · 25/11/2026</span></td>
-          <td>haute disponibilité, Proxmox VE, fencing, cluster, basculement</td>
-          <td>Technologique</td>
-          <td class="c">4</td><td class="c">4</td><td class="c">4</td>
-          <td class="c"><strong>40</strong></td>
-          <td><span class="reco ok">Retenir</span></td>
-          <td class="com">Documentation officielle : fonctionnement de ha-manager, états des services, fencing par watchdog, mode maintenance. Page modifiée la veille de ma consultation. Lien direct avec mes projets de virtualisation.</td>
-        </tr>
-        <tr>
-          <td class="c">3</td>
-          <td class="t"><a href="https://blog.cloudflare.com/ddos-threat-report-2026-q3/" target="_blank" rel="noopener">Cloudflare DDoS Threat Report 2026 Q3 : More swarms, fewer giants</a><span class="src">Cloudforce One (Cloudflare) · blog.cloudflare.com · 29/10/2026</span></td>
-          <td>DDoS, disponibilité, botnet, attaques réseau</td>
-          <td>Cybersécurité</td>
-          <td class="c">3</td><td class="c">4</td><td class="c">4</td>
-          <td class="c"><strong>37</strong></td>
-          <td><span class="reco ok">Retenir</span></td>
-          <td class="com">Rapport trimestriel : hausse de 208 % des attaques courtes et baisse d&#x27;environ 69 % des attaques de plus de 1 Tbps. Montre pourquoi la disponibilité doit être protégée en permanence (Bloc 3). Données de l&#x27;éditeur, donc à relativiser légèrement.</td>
-        </tr>
-        <tr>
-          <td class="c">4</td>
-          <td class="t"><a href="https://oneuptime.com/blog/post/2026-01-08-haproxy-kubernetes-high-availability/view" target="_blank" rel="noopener">How to Configure HAProxy for High Availability in Front of Kubernetes</a><span class="src">Nawaz Dhandala · oneuptime.com (blog) · 08/01/2026</span></td>
-          <td>HAProxy, Keepalived, IP virtuelle, basculement, health checks</td>
-          <td>Technologique</td>
-          <td class="c">4</td><td class="c">4</td><td class="c">2</td>
-          <td class="c"><strong>34</strong></td>
-          <td><span class="reco ok">Retenir</span></td>
-          <td class="com">Tutoriel pas à pas : deux HAProxy avec Keepalived et une IP virtuelle, certificats TLS, vérifications de santé, tests de basculement. Blog d&#x27;un éditeur d&#x27;outil de supervision : crédible mais non vérifié, à tester en laboratoire.</td>
-        </tr>
-        <tr>
-          <td class="c">5</td>
-          <td class="t"><a href="https://oneuptime.com/blog/post/2026-01-30-global-load-balancing/view" target="_blank" rel="noopener">How to Build Global Load Balancing</a><span class="src">Nawaz Dhandala · oneuptime.com (blog) · 30/01/2026</span></td>
-          <td>répartition globale, GeoDNS, Anycast, latence, multi-régions</td>
-          <td>Technologique</td>
-          <td class="c">4</td><td class="c">4</td><td class="c">2</td>
-          <td class="c"><strong>34</strong></td>
-          <td><span class="reco ok">Retenir</span></td>
-          <td class="com">Explique GeoDNS, Anycast et le routage selon la latence pour diriger chaque utilisateur vers le point d&#x27;accès sain le plus proche. Même blog que la source précédente : à recouper avec la source d&#x27;IBM.</td>
-        </tr>
-        <tr>
-          <td class="c">7</td>
-          <td class="t"><a href="https://learn.microsoft.com/windows-server/failover-clustering/failover-clustering-overview" target="_blank" rel="noopener">Failover Clustering in Windows Server and Azure Local</a><span class="src">Robin Harwood (Microsoft) · learn.microsoft.com · 25/06/2025</span></td>
-          <td>cluster de basculement, Windows Server, quorum, active-passive</td>
-          <td>Technologique</td>
-          <td class="c">4</td><td class="c">2</td><td class="c">4</td>
-          <td class="c"><strong>32</strong></td>
-          <td><span class="reco ok">Retenir</span></td>
-          <td class="com">Documentation officielle Microsoft : nœuds, rôles en cluster, quorum, Cluster Shared Volumes, heartbeat. Mise à jour il y a plus d&#x27;un an (note 2) mais toujours valable pour Windows Server 2016 à 2025.</td>
-        </tr>
-        <tr>
-          <td class="c">8</td>
-          <td class="t"><a href="https://docs.oracle.com/en/operating-systems/oracle-linux/10/balancing/balancing-AboutCombiningKeepalivedWithHAProxyforHighAvailabilityLoadBalancing.html" target="_blank" rel="noopener">Combining Keepalived With HAProxy for High-Availability Load Balancing</a><span class="src">Oracle (documentation Oracle Linux 10) · docs.oracle.com · 18/06/2025</span></td>
-          <td>Keepalived, HAProxy, répartition de charge, redondance</td>
-          <td>Technologique</td>
-          <td class="c">4</td><td class="c">2</td><td class="c">4</td>
-          <td class="c"><strong>32</strong></td>
-          <td><span class="reco ok">Retenir</span></td>
-          <td class="com">Documentation officielle : HAProxy apporte la répartition de charge, Keepalived le basculement entre routeurs de secours. Auteur non indiqué mais éditeur reconnu. Plus d&#x27;un an : date notée 2.</td>
-        </tr>
-        <tr>
-          <td class="c">6</td>
-          <td class="t"><a href="https://www.lafabriquedunet.fr/logiciels/tech/supervision-informatique" target="_blank" rel="noopener">Supervision informatique : comparatif de 16 outils, de Zabbix à Datadog</a><span class="src">Cyrille Adam (La Fabrique du Net) · lafabriquedunet.fr · 15/11/2026</span></td>
-          <td>supervision, Zabbix, Prometheus, Centreon, observabilité</td>
-          <td>Technologique</td>
-          <td class="c">3</td><td class="c">4</td><td class="c">2</td>
-          <td class="c"><strong>31</strong></td>
-          <td><span class="reco ok">Retenir</span></td>
-          <td class="com">Comparatif des outils de supervision avec versions gratuites et prix. L&#x27;article précise qu&#x27;aucun outil n&#x27;a été testé et le site est un comparateur commercial : utile pour connaître les outils, pas pour les juger.</td>
-        </tr>
-        <tr>
-          <td class="c">9</td>
-          <td class="t"><a href="https://www.ibm.com/think/topics/global-server-load-balancing" target="_blank" rel="noopener">What is global server load balancing (GSLB)?</a><span class="src">Chrystal R. China et Michael Goodwin (IBM) · ibm.com (IBM Think) · 31/07/2024</span></td>
-          <td>GSLB, DNS, multi-datacenters, reprise après sinistre, anycast</td>
-          <td>Technologique</td>
-          <td class="c">4</td><td class="c">2</td><td class="c">3</td>
-          <td class="c"><strong>29</strong></td>
-          <td><span class="reco ok">Retenir</span></td>
-          <td class="com">Article de référence sur la répartition de charge entre sites distants (DNS, contrôles de santé, anycast, reprise après sinistre). Les dates affichées sont contradictoires (mai ou juillet 2024) : j&#x27;ai retenu juillet. Plus de 2 ans, mais notion stable.</td>
-        </tr>
-        <tr>
-          <td class="c">10</td>
-          <td class="t"><a href="https://knowledge.broadcom.com/external/article/313917/best-practices-and-advanced-features-for.html" target="_blank" rel="noopener">Best practices and advanced features for vSphere High Availability</a><span class="src">Broadcom (base de connaissances VMware) · knowledge.broadcom.com · non datée</span></td>
-          <td>vSphere HA, VMware, cluster, bonnes pratiques</td>
-          <td>Technologique</td>
-          <td class="c">4</td><td class="c">1</td><td class="c">4</td>
-          <td class="c"><strong>28</strong></td>
-          <td><span class="reco ok">Retenir</span></td>
-          <td class="com">Article officiel sur vSphere HA, renvoyant vers les guides par version (6.5 à 8.0). La page n&#x27;indique aucune date : je note 1 par prudence. Très proche de mes projets sous vSphere, à compléter avec le guide de disponibilité de la version 8.</td>
-        </tr>
-        <tr>
-          <td class="c">11</td>
-          <td class="t"><a href="https://dev.to/johalputt/comparison-metallb-vs-kube-vip-vs-keepalived-for-kubernetes-load-balancing-2oo8" target="_blank" rel="noopener">Comparison: MetalLB vs. kube-vip vs. Keepalived for Kubernetes Load Balancing</a><span class="src">Ankush Choudhary Johal · dev.to · non datée</span></td>
-          <td>MetalLB, kube-vip, Keepalived, benchmarks, Kubernetes</td>
-          <td>Technologique</td>
-          <td class="c">3</td><td class="c">1</td><td class="c">2</td>
-          <td class="c"><strong>19</strong></td>
-          <td><span class="reco no">À écarter</span></td>
-          <td class="com">Les benchmarks sont détaillés, mais plusieurs statistiques ne sont pas sourcées, le nombre d&#x27;itérations est incohérent, l&#x27;étude de cas est anonyme et la page n&#x27;est pas datée. Écartée : je préfère les documentations officielles.</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <h2>Le tableau</h2>
+  <p class="meta">Clique sur l'image pour l'agrandir. Le fichier Excel contient les liens cliquables de chaque source.</p>
+  <figure class="shot full"><img src="img/tableau-sources.png" alt="Tableau d'analyse des sources de ma veille : 11 sources notées sur la pertinence, la date et la fiabilité"></figure>
+
+  <h2>Liens vers les sources</h2>
+  <ul class="src-links">
+<li><a href="https://www.usenix.org/conference/srecon26americas/presentation/nanda" target="_blank" rel="noopener">Intelligent Load Balancing in Kubernetes</a> <span class="meta">· usenix.org (SREcon26 Americas)</span></li>
+<li><a href="https://pve.proxmox.com/wiki/High_Availability" target="_blank" rel="noopener">High Availability (ha-manager)</a> <span class="meta">· pve.proxmox.com</span></li>
+<li><a href="https://blog.cloudflare.com/ddos-threat-report-2026-q3/" target="_blank" rel="noopener">Cloudflare DDoS Threat Report 2026 Q3 : More swarms, fewer giants</a> <span class="meta">· blog.cloudflare.com</span></li>
+<li><a href="https://oneuptime.com/blog/post/2026-01-08-haproxy-kubernetes-high-availability/view" target="_blank" rel="noopener">How to Configure HAProxy for High Availability in Front of Kubernetes</a> <span class="meta">· oneuptime.com (blog)</span></li>
+<li><a href="https://oneuptime.com/blog/post/2026-01-30-global-load-balancing/view" target="_blank" rel="noopener">How to Build Global Load Balancing</a> <span class="meta">· oneuptime.com (blog)</span></li>
+<li><a href="https://www.lafabriquedunet.fr/logiciels/tech/supervision-informatique" target="_blank" rel="noopener">Supervision informatique : comparatif de 16 outils, de Zabbix à Datadog</a> <span class="meta">· lafabriquedunet.fr</span></li>
+<li><a href="https://learn.microsoft.com/windows-server/failover-clustering/failover-clustering-overview" target="_blank" rel="noopener">Failover Clustering in Windows Server and Azure Local</a> <span class="meta">· learn.microsoft.com</span></li>
+<li><a href="https://docs.oracle.com/en/operating-systems/oracle-linux/10/balancing/balancing-AboutCombiningKeepalivedWithHAProxyforHighAvailabilityLoadBalancing.html" target="_blank" rel="noopener">Combining Keepalived With HAProxy for High-Availability Load Balancing</a> <span class="meta">· docs.oracle.com</span></li>
+<li><a href="https://www.ibm.com/think/topics/global-server-load-balancing" target="_blank" rel="noopener">What is global server load balancing (GSLB)?</a> <span class="meta">· ibm.com (IBM Think)</span></li>
+<li><a href="https://knowledge.broadcom.com/external/article/313917/best-practices-and-advanced-features-for.html" target="_blank" rel="noopener">Best practices and advanced features for vSphere High Availability</a> <span class="meta">· knowledge.broadcom.com</span></li>
+<li><a href="https://dev.to/johalputt/comparison-metallb-vs-kube-vip-vs-keepalived-for-kubernetes-load-balancing-2oo8" target="_blank" rel="noopener">Comparison: MetalLB vs. kube-vip vs. Keepalived for Kubernetes Load Balancing</a> <span class="meta">· dev.to</span></li>
+  </ul>
 
   <div class="pager">
     <a class="btn" href="index.html#veille">← Retour à la veille</a>
