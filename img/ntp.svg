@@ -1,18 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif">
 <defs>
-<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#110f0a"/><stop offset="1" stop-color="#1a160d"/></linearGradient>
-<pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" fill="#facc15" opacity=".18"/></pattern>
-<radialGradient id="glow" cx=".85" cy=".1" r=".7"><stop offset="0" stop-color="#facc15" stop-opacity=".22"/><stop offset="1" stop-color="#facc15" stop-opacity="0"/></radialGradient>
-<marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#f59e0b"/></marker>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#160a0a"/><stop offset="1" stop-color="#231010"/></linearGradient>
+<pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" fill="#ef4444" opacity=".18"/></pattern>
+<radialGradient id="glow" cx=".85" cy=".1" r=".7"><stop offset="0" stop-color="#ef4444" stop-opacity=".22"/><stop offset="1" stop-color="#ef4444" stop-opacity="0"/></radialGradient>
+<marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#fb923c"/></marker>
 </defs>
 <rect width="640" height="300" fill="url(#bg)"/><rect width="640" height="300" fill="url(#dots)"/><rect width="640" height="300" fill="url(#glow)"/>
-<text x="320" y="46" text-anchor="middle" font-size="19" fill="#f59e0b" font-weight="600" >Chaîne de synchronisation NTP</text>
-<rect x="17" y="92" width="126" height="104" rx="14" fill="#1a160d" stroke="#bfb49a" stroke-width="2"/><text x="80.0" y="141.0" text-anchor="middle" font-size="19" font-weight="700" fill="#fff8e6">Pool NTP</text><text x="80.0" y="164.0" text-anchor="middle" font-size="14" fill="#bfb49a">stratum 2</text>
-<rect x="177" y="92" width="126" height="104" rx="14" fill="#1a160d" stroke="#f59e0b" stroke-width="2"/><text x="240.0" y="141.0" text-anchor="middle" font-size="19" font-weight="700" fill="#fff8e6">pfSense</text><text x="240.0" y="164.0" text-anchor="middle" font-size="14" fill="#bfb49a">serveur NTP</text>
-<rect x="337" y="92" width="126" height="104" rx="14" fill="#1a160d" stroke="#facc15" stroke-width="2"/><text x="400.0" y="141.0" text-anchor="middle" font-size="19" font-weight="700" fill="#fff8e6">SRV-AD</text><text x="400.0" y="164.0" text-anchor="middle" font-size="14" fill="#bfb49a">stratum 3</text>
-<rect x="497" y="92" width="126" height="104" rx="14" fill="#1a160d" stroke="#facc15" stroke-width="2"/><text x="560.0" y="141.0" text-anchor="middle" font-size="19" font-weight="700" fill="#fff8e6">PC client</text><text x="560.0" y="164.0" text-anchor="middle" font-size="14" fill="#bfb49a">stratum 4</text>
-<line x1="173" y1="144" x2="147" y2="144" stroke="#f59e0b" stroke-width="2" marker-end='url(#ar)'/>
-<line x1="333" y1="144" x2="307" y2="144" stroke="#f59e0b" stroke-width="2" marker-end='url(#ar)'/>
-<line x1="493" y1="144" x2="467" y2="144" stroke="#f59e0b" stroke-width="2" marker-end='url(#ar)'/>
-<text x="320" y="246" text-anchor="middle" font-size="16" fill="#bfb49a" font-weight="400" >Chaque machine interroge la précédente (UDP 123)</text>
+<text x="320" y="46" text-anchor="middle" font-size="19" fill="#fb923c" font-weight="600" >Chaîne de synchronisation NTP</text>
+<rect x="17" y="92" width="126" height="104" rx="14" fill="#231010" stroke="#c9a3a3" stroke-width="2"/><text x="80.0" y="141.0" text-anchor="middle" font-size="19" font-weight="700" fill="#fff1f1">Pool NTP</text><text x="80.0" y="164.0" text-anchor="middle" font-size="14" fill="#c9a3a3">stratum 2</text>
+<rect x="177" y="92" width="126" height="104" rx="14" fill="#231010" stroke="#fb923c" stroke-width="2"/><text x="240.0" y="141.0" text-anchor="middle" font-size="19" font-weight="700" fill="#fff1f1">pfSense</text><text x="240.0" y="164.0" text-anchor="middle" font-size="14" fill="#c9a3a3">serveur NTP</text>
+<rect x="337" y="92" width="126" height="104" rx="14" fill="#231010" stroke="#ef4444" stroke-width="2"/><text x="400.0" y="141.0" text-anchor="middle" font-size="19" font-weight="700" fill="#fff1f1">SRV-AD</text><text x="400.0" y="164.0" text-anchor="middle" font-size="14" fill="#c9a3a3">stratum 3</text>
+<rect x="497" y="92" width="126" height="104" rx="14" fill="#231010" stroke="#ef4444" stroke-width="2"/><text x="560.0" y="141.0" text-anchor="middle" font-size="19" font-weight="700" fill="#fff1f1">PC client</text><text x="560.0" y="164.0" text-anchor="middle" font-size="14" fill="#c9a3a3">stratum 4</text>
+<line x1="173" y1="144" x2="147" y2="144" stroke="#fb923c" stroke-width="2" marker-end='url(#ar)'/>
+<line x1="333" y1="144" x2="307" y2="144" stroke="#fb923c" stroke-width="2" marker-end='url(#ar)'/>
+<line x1="493" y1="144" x2="467" y2="144" stroke="#fb923c" stroke-width="2" marker-end='url(#ar)'/>
+<text x="320" y="246" text-anchor="middle" font-size="16" fill="#c9a3a3" font-weight="400" >Chaque machine interroge la précédente (UDP 123)</text>
 </svg>
