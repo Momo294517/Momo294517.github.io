@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tableau d'analyse des sources – Mohamed Bellouza</title>
-  <meta name="description" content="Tableau d'analyse des sources de ma veille technologique sur la sécurité des jeux en ligne.">
+  <meta name="description" content="Tableau d'analyse des sources de ma veille technologique sur la haute disponibilité et la répartition de charge.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -30,14 +30,14 @@
 <main class="detail wide">
   <a class="back" href="index.html#veille">← Retour à la veille technologique</a>
   <h1>Tableau d'analyse des sources</h1>
-  <p class="lead">Chaque source de ma veille sur la sécurité des jeux en ligne est évaluée selon trois critères, puis retenue ou écartée.</p>
+  <p class="lead">Chaque source de ma veille sur la haute disponibilité et la répartition de charge est évaluée selon trois critères, puis retenue ou écartée.</p>
   <p><a class="btn primary" href="tableau-analyse-sources.xlsx" download>Télécharger le fichier Excel</a></p>
 
   <div class="facts">
-    <div><b>Sources analysées</b>12</div>
-    <div><b>Sources retenues</b>11</div>
+    <div><b>Sources analysées</b>11</div>
+    <div><b>Sources retenues</b>10</div>
     <div><b>Sources écartées</b>1</div>
-    <div><b>Taux de validation</b>92 %</div>
+    <div><b>Taux de validation</b>91 %</div>
   </div>
 
   <h2>Méthode de notation</h2>
@@ -63,123 +63,113 @@
       <tbody>
         <tr>
           <td class="c">1</td>
+          <td class="t"><a href="https://www.usenix.org/conference/srecon26americas/presentation/nanda" target="_blank" rel="noopener">Intelligent Load Balancing in Kubernetes</a><span class="src">Gaurav Nanda et Vincent Cheng (Databricks) · usenix.org (SREcon26 Americas) · 26/03/2026</span></td>
+          <td>répartition de charge, Kubernetes, latence, kube-proxy, couche 7</td>
+          <td>Technologique</td>
+          <td class="c">4</td><td class="c">4</td><td class="c">4</td>
+          <td class="c"><strong>40</strong></td>
+          <td><span class="reco ok">Retenir</span></td>
+          <td class="com">Conférence d&#x27;ingénieurs de Databricks : la répartition de charge par défaut de Kubernetes est inégale avec des connexions persistantes ; ils présentent un routage en couche 7 qui stabilise la latence. Source très sûre (conférence professionnelle, intervenants identifiés).</td>
+        </tr>
+        <tr>
+          <td class="c">2</td>
+          <td class="t"><a href="https://pve.proxmox.com/wiki/High_Availability" target="_blank" rel="noopener">High Availability (ha-manager)</a><span class="src">Proxmox Server Solutions GmbH · pve.proxmox.com · 25/11/2026</span></td>
+          <td>haute disponibilité, Proxmox VE, fencing, cluster, basculement</td>
+          <td>Technologique</td>
+          <td class="c">4</td><td class="c">4</td><td class="c">4</td>
+          <td class="c"><strong>40</strong></td>
+          <td><span class="reco ok">Retenir</span></td>
+          <td class="com">Documentation officielle : fonctionnement de ha-manager, états des services, fencing par watchdog, mode maintenance. Page modifiée la veille de ma consultation. Lien direct avec mes projets de virtualisation.</td>
+        </tr>
+        <tr>
+          <td class="c">3</td>
           <td class="t"><a href="https://blog.cloudflare.com/ddos-threat-report-2026-q3/" target="_blank" rel="noopener">Cloudflare DDoS Threat Report 2026 Q3 : More swarms, fewer giants</a><span class="src">Cloudforce One (Cloudflare) · blog.cloudflare.com · 29/10/2026</span></td>
-          <td>DDoS, botnet, attaques réseau, rapport trimestriel</td>
+          <td>DDoS, disponibilité, botnet, attaques réseau</td>
           <td>Cybersécurité</td>
           <td class="c">3</td><td class="c">4</td><td class="c">4</td>
           <td class="c"><strong>37</strong></td>
           <td><span class="reco ok">Retenir</span></td>
-          <td class="com">Données issues du réseau mondial de Cloudflare : 18,2 millions d&#x27;attaques réseau bloquées, avec une hausse des attaques courtes. Le jeu vidéo n&#x27;est pas cité : sert à illustrer les menaces visant tous les services en ligne, dont les serveurs de jeu.</td>
-        </tr>
-        <tr>
-          <td class="c">2</td>
-          <td class="t"><a href="https://www.malwarebytes.com/fr/blog/data-breaches/2026/10/resident-evil-maker-capcom-warns-of-phishing-after-11-7-million-records-exposed" target="_blank" rel="noopener">Capcom, le créateur de Resident Evil, met en garde contre le hameçonnage après la fuite de 11,7 millions d&#x27;enregistrements</a><span class="src">Pieter Arntz · Malwarebytes (blog) · 23/10/2026</span></td>
-          <td>fuite de données, comptes joueurs, hameçonnage, double authentification</td>
-          <td>Cybersécurité</td>
-          <td class="c">4</td><td class="c">4</td><td class="c">3</td>
-          <td class="c"><strong>37</strong></td>
-          <td><span class="reco ok">Retenir</span></td>
-          <td class="com">Fuite de données de comptes CAPCOM ID (e-mails, adresses IP, dates de naissance pour une minorité). Pas de cartes bancaires touchées selon l&#x27;éditeur. Conseils : double authentification et connexion via le site officiel.</td>
-        </tr>
-        <tr>
-          <td class="c">3</td>
-          <td class="t"><a href="https://www.it-connect.fr/gta-6-rockstar-games-confirme-le-vol-de-donnees-par-shinyhunters/" target="_blank" rel="noopener">GTA 6 – Rockstar Games confirme le vol de données par ShinyHunters</a><span class="src">Florian Burnel · IT-Connect · 13/04/2026</span></td>
-          <td>fuite de données, ShinyHunters, prestataire tiers, Snowflake, rançon</td>
-          <td>Cybersécurité</td>
-          <td class="c">3</td><td class="c">4</td><td class="c">3</td>
-          <td class="c"><strong>34</strong></td>
-          <td><span class="reco ok">Retenir</span></td>
-          <td class="com">Attaque passée par un outil tiers basé sur l&#x27;IA, puis par les instances Snowflake de l&#x27;éditeur. Données principalement commerciales, sans données de joueurs selon l&#x27;article. Illustre le risque lié aux prestataires (chaîne d&#x27;approvisionnement). Version de l&#x27;éditeur à relativiser.</td>
+          <td class="com">Rapport trimestriel : hausse de 208 % des attaques courtes et baisse d&#x27;environ 69 % des attaques de plus de 1 Tbps. Montre pourquoi la disponibilité doit être protégée en permanence (Bloc 3). Données de l&#x27;éditeur, donc à relativiser légèrement.</td>
         </tr>
         <tr>
           <td class="c">4</td>
-          <td class="t"><a href="https://www.malwarebytes.com/fr/blog/data-breaches/2026/06/data-of-2-4-million-vrchat-users-stolen" target="_blank" rel="noopener">VRChat affirme que la fuite de données signalée n&#x27;a jamais eu lieu</a><span class="src">Pieter Arntz · Malwarebytes (blog) · 11/06/2026</span></td>
-          <td>fuite de données, allégation, démenti, VRChat, vérification</td>
-          <td>Cybersécurité</td>
-          <td class="c">3</td><td class="c">4</td><td class="c">2</td>
-          <td class="c"><strong>31</strong></td>
+          <td class="t"><a href="https://oneuptime.com/blog/post/2026-01-08-haproxy-kubernetes-high-availability/view" target="_blank" rel="noopener">How to Configure HAProxy for High Availability in Front of Kubernetes</a><span class="src">Nawaz Dhandala · oneuptime.com (blog) · 08/01/2026</span></td>
+          <td>HAProxy, Keepalived, IP virtuelle, basculement, health checks</td>
+          <td>Technologique</td>
+          <td class="c">4</td><td class="c">4</td><td class="c">2</td>
+          <td class="c"><strong>34</strong></td>
           <td><span class="reco ok">Retenir</span></td>
-          <td class="com">Un avis de violation évoque 2,4 millions d&#x27;utilisateurs, mais l&#x27;éditeur le conteste. La fuite n&#x27;est pas confirmée : à citer avec prudence, et un bon exemple de la nécessité de recouper les informations avant de les relayer.</td>
+          <td class="com">Tutoriel pas à pas : deux HAProxy avec Keepalived et une IP virtuelle, certificats TLS, vérifications de santé, tests de basculement. Blog d&#x27;un éditeur d&#x27;outil de supervision : crédible mais non vérifié, à tester en laboratoire.</td>
         </tr>
         <tr>
           <td class="c">5</td>
-          <td class="t"><a href="https://techcrunch.com/2025/05/03/how-riot-games-is-fighting-the-war-against-video-game-hackers/" target="_blank" rel="noopener">How Riot Games is fighting the war against video game hackers</a><span class="src">Lorenzo Franceschi-Bicchierai · TechCrunch · 03/05/2025</span></td>
-          <td>anti-triche, Vanguard, noyau, Riot Games, bannissement</td>
+          <td class="t"><a href="https://oneuptime.com/blog/post/2026-01-30-global-load-balancing/view" target="_blank" rel="noopener">How to Build Global Load Balancing</a><span class="src">Nawaz Dhandala · oneuptime.com (blog) · 30/01/2026</span></td>
+          <td>répartition globale, GeoDNS, Anycast, latence, multi-régions</td>
           <td>Technologique</td>
-          <td class="c">4</td><td class="c">2</td><td class="c">3</td>
-          <td class="c"><strong>29</strong></td>
+          <td class="c">4</td><td class="c">4</td><td class="c">2</td>
+          <td class="c"><strong>34</strong></td>
           <td><span class="reco ok">Retenir</span></td>
-          <td class="com">Média indépendant qui interroge l&#x27;équipe anti-triche de Riot : Vanguard au niveau du noyau, empreinte matérielle, bannissements progressifs. Entre 1 et 2 ans : date notée 2 (le barème ne couvre pas cet intervalle).</td>
-        </tr>
-        <tr>
-          <td class="c">6</td>
-          <td class="t"><a href="https://arxiv.org/abs/2508.06348" target="_blank" rel="noopener">AntiCheatPT : A Transformer-Based Approach to Cheat Detection in Competitive Computer Games</a><span class="src">Mille Mei Zhen Loo, Gert Luzkov, Paolo Burelli · arXiv (prépublication) · 08/08/2025</span></td>
-          <td>intelligence artificielle, transformer, détection de triche, Counter-Strike 2</td>
-          <td>Technologique</td>
-          <td class="c">4</td><td class="c">2</td><td class="c">3</td>
-          <td class="c"><strong>29</strong></td>
-          <td><span class="reco ok">Retenir</span></td>
-          <td class="com">Article de recherche : un modèle d&#x27;IA détecte la triche dans Counter-Strike 2 (89,17 % de précision) sur un jeu de données de 795 matchs. Prépublication : méthode à lire avec recul. Entre 1 et 2 ans : date notée 2.</td>
+          <td class="com">Explique GeoDNS, Anycast et le routage selon la latence pour diriger chaque utilisateur vers le point d&#x27;accès sain le plus proche. Même blog que la source précédente : à recouper avec la source d&#x27;IBM.</td>
         </tr>
         <tr>
           <td class="c">7</td>
-          <td class="t"><a href="https://www.leagueoflegends.com/en-sg/news/dev/dev-vanguard-x-lol-retrospective/" target="_blank" rel="noopener">/dev: Vanguard x LoL Retrospective</a><span class="src">mirageofpenguins (Riot Games) · leagueoflegends.com · 22/08/2024</span></td>
-          <td>anti-triche, Vanguard, League of Legends, bots, faux positifs</td>
+          <td class="t"><a href="https://learn.microsoft.com/windows-server/failover-clustering/failover-clustering-overview" target="_blank" rel="noopener">Failover Clustering in Windows Server and Azure Local</a><span class="src">Robin Harwood (Microsoft) · learn.microsoft.com · 25/06/2025</span></td>
+          <td>cluster de basculement, Windows Server, quorum, active-passive</td>
           <td>Technologique</td>
-          <td class="c">4</td><td class="c">2</td><td class="c">3</td>
-          <td class="c"><strong>29</strong></td>
+          <td class="c">4</td><td class="c">2</td><td class="c">4</td>
+          <td class="c"><strong>32</strong></td>
           <td><span class="reco ok">Retenir</span></td>
-          <td class="com">Bilan de l&#x27;éditeur après le déploiement de Vanguard : plus de 175 000 comptes bannis, scripts en classé sous 1 %, faux positifs sous 0,01 % des bannissements. Chiffres fournis par l&#x27;éditeur lui-même, donc à relativiser.</td>
+          <td class="com">Documentation officielle Microsoft : nœuds, rôles en cluster, quorum, Cluster Shared Volumes, heartbeat. Mise à jour il y a plus d&#x27;un an (note 2) mais toujours valable pour Windows Server 2016 à 2025.</td>
         </tr>
         <tr>
           <td class="c">8</td>
-          <td class="t"><a href="https://www.ea.com/fr-fr/news/ea-anticheat-safety" target="_blank" rel="noopener">EA anticheat met tout le monde sur un pied d&#x27;égalité</a><span class="src">Electronic Arts (rubrique Actualités) · ea.com · 22/08/2024</span></td>
-          <td>anti-triche, mode noyau, EA, sécurité, confidentialité</td>
+          <td class="t"><a href="https://docs.oracle.com/en/operating-systems/oracle-linux/10/balancing/balancing-AboutCombiningKeepalivedWithHAProxyforHighAvailabilityLoadBalancing.html" target="_blank" rel="noopener">Combining Keepalived With HAProxy for High-Availability Load Balancing</a><span class="src">Oracle (documentation Oracle Linux 10) · docs.oracle.com · 18/06/2025</span></td>
+          <td>Keepalived, HAProxy, répartition de charge, redondance</td>
+          <td>Technologique</td>
+          <td class="c">4</td><td class="c">2</td><td class="c">4</td>
+          <td class="c"><strong>32</strong></td>
+          <td><span class="reco ok">Retenir</span></td>
+          <td class="com">Documentation officielle : HAProxy apporte la répartition de charge, Keepalived le basculement entre routeurs de secours. Auteur non indiqué mais éditeur reconnu. Plus d&#x27;un an : date notée 2.</td>
+        </tr>
+        <tr>
+          <td class="c">6</td>
+          <td class="t"><a href="https://www.lafabriquedunet.fr/logiciels/tech/supervision-informatique" target="_blank" rel="noopener">Supervision informatique : comparatif de 16 outils, de Zabbix à Datadog</a><span class="src">Cyrille Adam (La Fabrique du Net) · lafabriquedunet.fr · 15/11/2026</span></td>
+          <td>supervision, Zabbix, Prometheus, Centreon, observabilité</td>
+          <td>Technologique</td>
+          <td class="c">3</td><td class="c">4</td><td class="c">2</td>
+          <td class="c"><strong>31</strong></td>
+          <td><span class="reco ok">Retenir</span></td>
+          <td class="com">Comparatif des outils de supervision avec versions gratuites et prix. L&#x27;article précise qu&#x27;aucun outil n&#x27;a été testé et le site est un comparateur commercial : utile pour connaître les outils, pas pour les juger.</td>
+        </tr>
+        <tr>
+          <td class="c">9</td>
+          <td class="t"><a href="https://www.ibm.com/think/topics/global-server-load-balancing" target="_blank" rel="noopener">What is global server load balancing (GSLB)?</a><span class="src">Chrystal R. China et Michael Goodwin (IBM) · ibm.com (IBM Think) · 31/07/2024</span></td>
+          <td>GSLB, DNS, multi-datacenters, reprise après sinistre, anycast</td>
           <td>Technologique</td>
           <td class="c">4</td><td class="c">2</td><td class="c">3</td>
           <td class="c"><strong>29</strong></td>
           <td><span class="reco ok">Retenir</span></td>
-          <td class="com">Présentation par l&#x27;éditeur de son anti-triche en mode noyau : près de 5 millions de tentatives neutralisées, plus de 20 millions de joueurs PC concernés. Communication de l&#x27;éditeur : chiffres non vérifiés de façon indépendante.</td>
-        </tr>
-        <tr>
-          <td class="c">9</td>
-          <td class="t"><a href="https://global.techradar.com/fr-fr/gaming/tricheurs-de-call-of-duty-preparez-vous-lia-prend-les-renes-avec-19-000-bans-dans-black-ops-6" target="_blank" rel="noopener">Call of Duty : l&#x27;IA prend les rênes contre les tricheurs, avec 19 000 bans dans Black Ops 6</a><span class="src">Non précisé · TechRadar (édition française) · 28/11/2024</span></td>
-          <td>anti-triche, Ricochet, intelligence artificielle, bannissements</td>
-          <td>Technologique</td>
-          <td class="c">3</td><td class="c">2</td><td class="c">3</td>
-          <td class="c"><strong>26</strong></td>
-          <td><span class="reco ok">Retenir</span></td>
-          <td class="com">Annonce de l&#x27;ajout d&#x27;IA à l&#x27;anti-triche Ricochet (mode noyau), avec plus de 19 000 bannissements en classé. L&#x27;article ne détaille pas le fonctionnement de l&#x27;IA : à compléter avec d&#x27;autres sources.</td>
+          <td class="com">Article de référence sur la répartition de charge entre sites distants (DNS, contrôles de santé, anycast, reprise après sinistre). Les dates affichées sont contradictoires (mai ou juillet 2024) : j&#x27;ai retenu juillet. Plus de 2 ans, mais notion stable.</td>
         </tr>
         <tr>
           <td class="c">10</td>
-          <td class="t"><a href="https://www.riotgames.com/en/news/a-message-about-vanguard-from-our-security-privacy-teams" target="_blank" rel="noopener">A Message About Vanguard From Our Security &amp; Privacy Teams</a><span class="src">The Riot Security Team (Chris Hymes et al.) · riotgames.com · 17/04/2020</span></td>
-          <td>Vanguard, pilote noyau, vie privée, audit, bug bounty</td>
-          <td>Cybersécurité</td>
+          <td class="t"><a href="https://knowledge.broadcom.com/external/article/313917/best-practices-and-advanced-features-for.html" target="_blank" rel="noopener">Best practices and advanced features for vSphere High Availability</a><span class="src">Broadcom (base de connaissances VMware) · knowledge.broadcom.com · non datée</span></td>
+          <td>vSphere HA, VMware, cluster, bonnes pratiques</td>
+          <td>Technologique</td>
           <td class="c">4</td><td class="c">1</td><td class="c">4</td>
           <td class="c"><strong>28</strong></td>
           <td><span class="reco ok">Retenir</span></td>
-          <td class="com">Source primaire : Riot justifie le pilote noyau, affirme ne pas envoyer d&#x27;informations sur l&#x27;ordinateur du joueur et annonce des audits et une prime aux bugs. Ancienne mais fondamentale pour comprendre le compromis entre protection et sécurité du poste.</td>
+          <td class="com">Article officiel sur vSphere HA, renvoyant vers les guides par version (6.5 à 8.0). La page n&#x27;indique aucune date : je note 1 par prudence. Très proche de mes projets sous vSphere, à compléter avec le guide de disponibilité de la version 8.</td>
         </tr>
         <tr>
           <td class="c">11</td>
-          <td class="t"><a href="https://www.pcgamer.com/valorants-always-on-anti-cheat-system-is-an-important-tool-in-our-fight-against-cheaters-says-riot" target="_blank" rel="noopener">Valorant&#x27;s always-on anti-cheat system is &#x27;an important tool in our fight against cheaters,&#x27; says Riot</a><span class="src">Non précisé · PC Gamer · 14/04/2020</span></td>
-          <td>Vanguard, pilote noyau, Valorant, inquiétudes des joueurs</td>
+          <td class="t"><a href="https://dev.to/johalputt/comparison-metallb-vs-kube-vip-vs-keepalived-for-kubernetes-load-balancing-2oo8" target="_blank" rel="noopener">Comparison: MetalLB vs. kube-vip vs. Keepalived for Kubernetes Load Balancing</a><span class="src">Ankush Choudhary Johal · dev.to · non datée</span></td>
+          <td>MetalLB, kube-vip, Keepalived, benchmarks, Kubernetes</td>
           <td>Technologique</td>
-          <td class="c">4</td><td class="c">1</td><td class="c">3</td>
-          <td class="c"><strong>25</strong></td>
-          <td><span class="reco ok">Retenir</span></td>
-          <td class="com">Article de presse qui relaie la position de Riot et les inquiétudes des joueurs sur les droits étendus d&#x27;un pilote noyau. Ancienne et redondante avec la source officielle de Riot : gardée pour le point de vue des joueurs.</td>
-        </tr>
-        <tr>
-          <td class="c">12</td>
-          <td class="t"><a href="https://tuta.com/blog/riot-requires-kernel-level-anticheat" target="_blank" rel="noopener">Riot Requires Kernel Level Anti-Cheat Software</a><span class="src">Brandon · tuta.com (blog) · 29/02/2024</span></td>
-          <td>Vanguard, noyau, vie privée, logiciel propriétaire, opinion</td>
-          <td>Technologique</td>
-          <td class="c">3</td><td class="c">2</td><td class="c">2</td>
-          <td class="c"><strong>23</strong></td>
+          <td class="c">3</td><td class="c">1</td><td class="c">2</td>
+          <td class="c"><strong>19</strong></td>
           <td><span class="reco no">À écarter</span></td>
-          <td class="com">Article d&#x27;opinion publié par un éditeur de messagerie chiffrée : biais commercial et angle volontairement critique, sans point de vue équilibré. Écarté de l&#x27;argumentaire, mais utile pour connaître les critiques sur la vie privée.</td>
+          <td class="com">Les benchmarks sont détaillés, mais plusieurs statistiques ne sont pas sourcées, le nombre d&#x27;itérations est incohérent, l&#x27;étude de cas est anonyme et la page n&#x27;est pas datée. Écartée : je préfère les documentations officielles.</td>
         </tr>
       </tbody>
     </table>

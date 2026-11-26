@@ -142,13 +142,13 @@ cisco/  nas-ad/  ntp-pfsense/
 
   <section id="veille">
     <h2 class="reveal">Veille technologique</h2>
-    <p class="section-lead reveal">La sécurité des jeux en ligne : anti-triche, attaques DDoS, protection des comptes, et rôle de l'IA.</p>
+    <p class="section-lead reveal">Haute disponibilité et répartition de charge : concevoir une infrastructure qui reste accessible et rapide, même avec des milliers d'utilisateurs répartis dans le monde.</p>
 
     <div class="card reveal">
       <h3>Sujet et problématique</h3>
-      <p>Les jeux en ligne rassemblent des millions de joueurs, et donc des cibles pour les tricheurs, les attaquants réseau et les voleurs de comptes. Passionné de jeux vidéo, j'ai choisi d'étudier comment les éditeurs protègent leur infrastructure et leurs joueurs.</p>
-      <p><strong>Problématique :</strong> comment les éditeurs de jeux en ligne sécurisent-ils leurs systèmes et leurs joueurs, et que change l'intelligence artificielle, côté défense comme côté attaque ?</p>
-      <p>Ce sujet rejoint mon option SISR : sécurité des postes et des serveurs, disponibilité des services face aux attaques, protection des données des utilisateurs.</p>
+      <p>Un service en ligne doit rester disponible malgré les pannes, les pics de connexions et les attaques. Les administrateurs systèmes et réseaux s'appuient pour cela sur la redondance, la répartition de charge, la virtualisation et la supervision.</p>
+      <p><strong>Problématique :</strong> comment concevoir une infrastructure capable de rester disponible et performante lorsque des milliers d'utilisateurs s'y connectent en même temps, depuis des pays différents ?</p>
+      <p>Ce sujet rejoint mon option SISR : administration des serveurs et de la virtualisation (Bloc 2), supervision, et protection de la disponibilité des services (Bloc 3). Il prolonge mes projets sous VMware vSphere, pfSense et Windows Server.</p>
     </div>
 
     <div class="card reveal" style="margin-top:20px">
@@ -159,37 +159,42 @@ cisco/  nas-ad/  ntp-pfsense/
 
     <h3 class="sub reveal">Les axes suivis</h3>
     <div class="grid">
-      <article class="card reveal"><h3>Anti-triche</h3><p>Comment détecter un logiciel de triche, du simple scan des processus jusqu'au pilote qui s'exécute au niveau du noyau de Windows, et quels risques cela crée pour le poste du joueur.</p></article>
-      <article class="card reveal"><h3>Attaques DDoS</h3><p>Comment les serveurs de jeu résistent aux attaques par déni de service : filtrage, répartition de charge, protection réseau.</p></article>
-      <article class="card reveal"><h3>Comptes et données</h3><p>Fuites de données chez les éditeurs, vol de comptes, authentification multifacteur, conformité au RGPD.</p></article>
-      <article class="card reveal"><h3>Intelligence artificielle</h3><p>L'IA qui détecte les tricheurs et les bots, et l'IA utilisée pour tricher ou attaquer.</p></article>
+      <article class="card reveal"><h3>Répartition de charge</h3><p>Répartir les connexions entre plusieurs serveurs avec des outils comme HAProxy, pour éviter qu'un seul serveur soit saturé.</p></article>
+      <article class="card reveal"><h3>Haute disponibilité</h3><p>Clusters de basculement (Windows Server, vSphere HA, Proxmox HA), IP virtuelle avec Keepalived : le service continue si un serveur tombe en panne.</p></article>
+      <article class="card reveal"><h3>Virtualisation et conteneurs</h3><p>Créer ou déplacer des machines et des conteneurs rapidement, selon la demande, avec VMware, Proxmox ou Kubernetes.</p></article>
+      <article class="card reveal"><h3>Multi-sites et réseau</h3><p>Diriger chaque utilisateur vers le site le plus proche et en bon état (GeoDNS, Anycast, GSLB) pour réduire la latence.</p></article>
+      <article class="card reveal"><h3>Supervision</h3><p>Surveiller la charge et détecter les pannes avec des outils comme Zabbix ou Prometheus, pour réagir avant les utilisateurs.</p></article>
+      <article class="card reveal"><h3>Protection contre les attaques DDoS</h3><p>Garder le service accessible face aux attaques par saturation : filtrage, capacité réseau et protection automatique.</p></article>
     </div>
 
     <h3 class="sub reveal">Notions clés</h3>
     <div class="card reveal">
       <ul>
-        <li><strong>Mode utilisateur et noyau :</strong> un programme classique s'exécute avec des droits limités. Un pilote chargé dans le noyau a presque tous les droits sur la machine, ce qui lui permet de mieux surveiller le jeu, mais augmente le risque si le pilote a une faille.</li>
-        <li><strong>Détection côté client :</strong> analyse des processus, de l'intégrité des fichiers du jeu et de la mémoire sur le poste du joueur.</li>
-        <li><strong>Détection côté serveur :</strong> le serveur vérifie que les actions sont possibles et repère les comportements statistiquement anormaux.</li>
+        <li><strong>Haute disponibilité (HA) :</strong> ensemble de moyens (redondance, basculement automatique) qui limitent le temps d'arrêt d'un service.</li>
+        <li><strong>Répartition de charge (load balancing) :</strong> distribution des requêtes entre plusieurs serveurs selon leur charge ou leur état de santé.</li>
+        <li><strong>Basculement (failover) et fencing :</strong> quand un nœud tombe, un autre reprend ses services, après avoir isolé le premier pour éviter les conflits.</li>
+        <li><strong>IP virtuelle :</strong> adresse partagée par deux serveurs, qui passe automatiquement de l'un à l'autre (Keepalived).</li>
+        <li><strong>GSLB et Anycast :</strong> répartition entre plusieurs sites éloignés, pour rapprocher l'utilisateur d'un serveur proche.</li>
         <li><strong>DDoS :</strong> saturation d'un service par un très grand nombre de requêtes venant de nombreuses machines.</li>
       </ul>
     </div>
 
     <h3 class="sub reveal">Mes sources</h3>
     <ul class="tags reveal">
+      <li><a href="https://pve.proxmox.com/wiki/High_Availability" target="_blank" rel="noopener">Proxmox VE</a></li>
+      <li><a href="https://learn.microsoft.com/windows-server/failover-clustering/failover-clustering-overview" target="_blank" rel="noopener">Microsoft Learn</a></li>
+      <li><a href="https://knowledge.broadcom.com/external/article/313917/best-practices-and-advanced-features-for.html" target="_blank" rel="noopener">Broadcom / VMware</a></li>
+      <li><a href="https://docs.oracle.com/en/operating-systems/oracle-linux/10/balancing/balancing-AboutCombiningKeepalivedWithHAProxyforHighAvailabilityLoadBalancing.html" target="_blank" rel="noopener">Oracle Linux</a></li>
       <li><a href="https://blog.cloudflare.com/" target="_blank" rel="noopener">Blog de Cloudflare</a></li>
-      <li><a href="https://www.riotgames.com/" target="_blank" rel="noopener">Riot Games</a></li>
-      <li><a href="https://www.malwarebytes.com/fr/blog" target="_blank" rel="noopener">Malwarebytes</a></li>
-      <li><a href="https://www.it-connect.fr/" target="_blank" rel="noopener">IT-Connect</a></li>
-      <li><a href="https://techcrunch.com/" target="_blank" rel="noopener">TechCrunch</a></li>
-      <li><a href="https://arxiv.org/" target="_blank" rel="noopener">arXiv</a></li>
+      <li><a href="https://www.usenix.org/conferences" target="_blank" rel="noopener">USENIX</a></li>
+      <li><a href="https://www.ibm.com/think/topics/global-server-load-balancing" target="_blank" rel="noopener">IBM Think</a></li>
     </ul>
 
     <h3 class="sub reveal">Mes outils de veille</h3>
     <div class="card reveal">
       <ul>
         <li>Lecteur de flux RSS (Feedly) pour regrouper les sources au même endroit</li>
-        <li>Alertes Google sur « anti-cheat », « DDoS jeux en ligne » et « piratage comptes joueurs »</li>
+        <li>Alertes Google sur « haute disponibilité », « load balancing » et « vSphere HA »</li>
         <li>Fiches de synthèse : date, source, résumé et ce que j'en retiens</li>
       </ul>
     </div>
@@ -199,23 +204,23 @@ cisco/  nas-ad/  ntp-pfsense/
       <article class="card reveal">
         <h3>Rapport Cloudflare sur les attaques DDoS, 3e trimestre 2026</h3>
         <p class="meta">29 octobre 2026 · Cloudflare</p>
-        <p>Cloudflare observe une évolution vers de nombreuses attaques courtes plutôt que quelques attaques géantes : 18,2 millions d'attaques réseau bloquées sur le trimestre. Les attaques supérieures à 1 Tbps ont fortement baissé, un recul que le rapport relie à des actions contre de grands botnets d'objets connectés.</p>
-        <p><strong>Ce que j'en retiens :</strong> la protection ne peut pas être manuelle, elle doit être automatique et permanente. Le jeu vidéo n'est pas cité dans ce rapport, mais les mêmes techniques visent les services en ligne, dont les serveurs de jeu.</p>
+        <p>Les attaques DDoS courtes et peu volumineuses augmentent de 208 %, alors que les attaques de plus de 1 Tbps reculent d'environ 69 %. Les attaquants passent de certaines techniques d'amplification à d'autres, notamment le DNS.</p>
+        <p><strong>Ce que j'en retiens :</strong> la protection doit être automatique et permanente, car une attaque courte peut interrompre un service avant qu'un administrateur réagisse.</p>
         <p><a href="https://blog.cloudflare.com/ddos-threat-report-2026-q3/" target="_blank" rel="noopener">Lire la source →</a></p>
       </article>
       <article class="card reveal">
-        <h3>Vanguard : un anti-triche qui s'exécute au niveau du noyau</h3>
-        <p class="meta">14 avril 2020 · PC Gamer (article de référence)</p>
-        <p>Riot Games explique que Vanguard charge un pilote noyau au démarrage de Windows, pour empêcher un logiciel de triche de s'y glisser avant lui. Riot affirme avoir limité ses droits, fait relire le code par des chercheurs externes et ne pas collecter d'informations sur le système. Des joueurs s'inquiétaient qu'un pilote noyau ait des droits étendus.</p>
-        <p><strong>Ce que j'en retiens :</strong> c'est un compromis entre efficacité de la protection et sécurité du poste utilisateur, qui rejoint la notion de moindre privilège.</p>
-        <p><a href="https://www.pcgamer.com/valorants-always-on-anti-cheat-system-is-an-important-tool-in-our-fight-against-cheaters-says-riot" target="_blank" rel="noopener">Lire la source →</a></p>
+        <h3>Intelligent Load Balancing in Kubernetes</h3>
+        <p class="meta">26 mars 2026 · USENIX SREcon26 (Databricks)</p>
+        <p>La répartition de charge par défaut de Kubernetes devient inégale avec des connexions longues. Les intervenants proposent un routage au niveau applicatif, avec des stratégies comme « Power of Two Choices », qui stabilise la latence.</p>
+        <p><strong>Ce que j'en retiens :</strong> répartir la charge ne suffit pas, il faut choisir l'algorithme adapté au type de trafic.</p>
+        <p><a href="https://www.usenix.org/conference/srecon26americas/presentation/nanda" target="_blank" rel="noopener">Lire la source →</a></p>
       </article>
       <article class="card reveal">
-        <h3>Call of Duty : l'IA s'ajoute à l'anti-triche Ricochet</h3>
-        <p class="meta">28 novembre 2024 · TechRadar</p>
-        <p>Activision renforce son anti-triche Ricochet, qui s'exécute au niveau du noyau, avec de l'intelligence artificielle. Plus de 19 000 bannissements ont été annoncés dans le mode classé de Black Ops 6, une semaine après son lancement.</p>
-        <p><strong>Ce que j'en retiens :</strong> l'IA accélère la détection et les sanctions, mais l'article ne détaille pas son fonctionnement. Un point à approfondir dans mes prochaines lectures.</p>
-        <p><a href="https://global.techradar.com/fr-fr/gaming/tricheurs-de-call-of-duty-preparez-vous-lia-prend-les-renes-avec-19-000-bans-dans-black-ops-6" target="_blank" rel="noopener">Lire la source →</a></p>
+        <h3>Haute disponibilité avec Proxmox VE</h3>
+        <p class="meta">25 novembre 2026 · Documentation Proxmox</p>
+        <p>La page détaille le gestionnaire ha-manager : états des services, isolement d'un nœud défaillant par watchdog (fencing), mode maintenance et règles d'affinité entre nœuds et machines.</p>
+        <p><strong>Ce que j'en retiens :</strong> la haute disponibilité repose autant sur la configuration (quorum, fencing) que sur le matériel redondant.</p>
+        <p><a href="https://pve.proxmox.com/wiki/High_Availability" target="_blank" rel="noopener">Lire la source →</a></p>
       </article>
     </div>
   </section>
